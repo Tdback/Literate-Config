@@ -1,0 +1,5 @@
+#+TITLE:Tdback's Arch Config
+
+Mint felt too restricting, and I wanted to get away from good Ubuntu and Debian distros for a change. So, like any reasonable person would do, I installed Arch and created my own operating system!.
+
+Here's my configuration, which includes tools such as alacritty, bspwm, sxhkd, rofi, polybar, and of course Emacs, which started my entire journey into the world of endless customization. Feel free to steal any code you would like!
