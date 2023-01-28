@@ -88,13 +88,13 @@
 (setq make-pointer-invisible t) ;; Edit this
 
 ;; Set font
-(set-face-attribute 'default nil :font "RedHat Mono" :height 140)
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
 
 ;; Set fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "RedHat Mono" :height 140)
+(set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 140)
 
 ;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "RedHat Mono" :height 140)
+(set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font" :height 140)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -109,7 +109,7 @@
 
   (td/leader-keys
     "t" '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose themse")))
+    "tt" '(counsel-load-theme :which-key "choose themes")))
 
 (general-define-key
   "C-x h" 'previous-buffer
@@ -219,8 +219,8 @@
                           '(("^ *\\([-]\\) "
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-  (dolist (face '((org-level-1 . 1.05)
-                  (org-level-2 . 1.05)
+  (dolist (face '((org-level-1 . 1.15)
+                  (org-level-2 . 1.10)
                   (org-level-3 . 1.05)
                   (org-level-4 . 1.0)
                   (org-level-5 . 1.0)
@@ -651,7 +651,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(dired-hide-dotfiles all-the-icons-dired dired-single eshell-toggle eshell-syntax-highlighting eshell-git-prompt vterm rainbow-delimiters magit counsel-projectile projectile evil-nerd-commenter go-mode rust-mode python-mode sly cape corfu orderless eglot org-roam visual-fill-column org-bullets hydra helpful counsel ivy-rich ivy which-key all-the-icons doom-modeline doom-themes evil-collection evil general auto-package-update use-package)))
+   '(xterm-color which-key vterm visual-fill-column use-package sly rust-mode rainbow-delimiters python-mode org-roam org-bullets orderless magit ivy-rich hydra helpful go-mode general evil-nerd-commenter evil-collection eshell-toggle eshell-syntax-highlighting eshell-git-prompt eglot doom-themes doom-modeline dired-single dired-hide-dotfiles counsel-projectile corfu cape auto-package-update all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
