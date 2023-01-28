@@ -27,7 +27,7 @@ super + shift + p
 super + e
 	emacs
 
-super + i
+super + n
 	thunar
 
 # Reload polybar
