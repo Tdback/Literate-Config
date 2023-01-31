@@ -1,5 +1,9 @@
 #+TITLE:Tdback's Arch Config
 
-Mint felt too restricting, and I wanted to get away from good Ubuntu and Debian distros for a change. So, like any reasonable person would do, I installed Arch and created my own operating system!.
+/There are islands of Mac devices, but Linux is the ocean. There are clouds of Windows servers, but Linux is the sky.../
+
+Welcome to /my/ Arch Linux!
+
+Linux Mint, although a wonderful distro, felt too restricting and like something was missing. After distro hopping for some time, I wanted to get away from Debian-based distros like Ubuntu and Mint for a change. So, like any reasonable person would do, I installed Arch and created my own operating system!
 
 Here's my configuration, which includes tools such as alacritty, bspwm, sxhkd, rofi, polybar, and of course Emacs, which started my entire journey into the world of endless customization. Feel free to steal any code you would like!
