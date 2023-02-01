@@ -1,11 +1,8 @@
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/td/.local/bin
-
 export LESSHISTFILE="-"
 HISTCONTROL=ignoreboth
 HISTFILE=~/.histfile
 HISTSIZE=10000
-SAVEHIST=4000
+SAVEHIST=10000
 
 setopt autocd
 
