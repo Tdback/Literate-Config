@@ -523,6 +523,9 @@
 (use-package go-mode
   :ensure t :defer t :mode "\\.go\\'")
 
+(use-package yaml-mode
+  :ensure t :mode "\\.yml\\'")
+
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 
@@ -645,13 +648,14 @@
 
 ;; Make gc pauses faster by decreasing the threshold
 (setq gc-cons-threshold (* 2 1000 1000))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(xterm-color which-key vterm visual-fill-column use-package sly rust-mode rainbow-delimiters python-mode org-roam org-bullets orderless magit ivy-rich hydra helpful go-mode general evil-nerd-commenter evil-collection eshell-toggle eshell-syntax-highlighting eshell-git-prompt eglot doom-themes doom-modeline dired-single dired-hide-dotfiles counsel-projectile corfu cape auto-package-update all-the-icons-dired)))
+   '(yaml-mode xterm-color which-key vterm visual-fill-column use-package sly rust-mode rainbow-delimiters python-mode org-roam org-bullets orderless magit ivy-rich hydra helpful go-mode general evil-nerd-commenter evil-collection eshell-toggle eshell-syntax-highlighting eshell-git-prompt eglot doom-themes doom-modeline dired-single dired-hide-dotfiles counsel-projectile corfu cape auto-package-update all-the-icons-dired)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

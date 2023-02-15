@@ -737,6 +737,15 @@
 
 #+end_src
 
+** yaml
+
+#+begin_src emacs-lisp
+
+(use-package yaml-mode
+  :ensure t :mode "\\.yml\\'")
+
+#+end_src
+
 ** Commenting Lines
 
 - =M-/= to comment/uncomment lines
