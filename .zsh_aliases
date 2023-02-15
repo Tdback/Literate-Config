@@ -3,6 +3,7 @@
 # Terminal
 alias cp='cp -iv'
 alias rm='rm -Idv'
+alias mv='mv -v'
 
 alias ll='ls -alF'
 alias la='ls -A'
