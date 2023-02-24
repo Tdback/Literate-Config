@@ -9,6 +9,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Ensure the right rename is used
+alias rename='perl-rename'
+
 # Python
 alias py='/usr/bin/python3'
 alias python='/usr/bin/python3'
