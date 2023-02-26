@@ -10,7 +10,12 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Ensure the right rename is used
-alias rename='perl-rename'
+alias prename='perl-rename'
+
+# Always use -9 on file compression
+alias zip='zip -9'
+alias gzip='gzip -9'
+alias bzip2='bzip2 -9'
 
 # Python
 alias py='/usr/bin/python3'
