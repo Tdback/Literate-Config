@@ -45,8 +45,9 @@ bspc config active_border_color "$color0"
 bspc config presel_feedback_color "$color2"
 
 # Application rules
-bspc rule -a Steam desktop="^4"
+bspc rule -a Steam desktop="^10"
 bspc rule -a Emacs state=tiled
+bspc rule -a Zathura state=tiled
 
 # Auto start programs
 sleep 0.50
