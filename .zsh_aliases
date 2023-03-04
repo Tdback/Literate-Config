@@ -4,6 +4,8 @@
 alias cp='cp -iv'
 alias rm='rm -Idv'
 alias mv='mv -v'
+alias mkdir='mkdir -v'
+alias rmdir='rmdir -v'
 
 alias ll='ls -alF'
 alias la='ls -A'
