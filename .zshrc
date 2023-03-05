@@ -9,6 +9,9 @@ setopt autocd
 # evil mode
 bindkey -v
 
+# enable noclobber to prevent overwriting existing files with redirection
+set -o noclobber
+
 # Enable color support of las and also add handy aliases
 if [ -x /usr/bin/dircolors ] ; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
