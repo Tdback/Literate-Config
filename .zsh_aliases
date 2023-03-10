@@ -14,6 +14,9 @@ alias l='ls -CF'
 # Ensure the right rename is used
 alias prename='perl-rename'
 
+# Make bat function like cat
+alias bat='bat --paging=never'
+
 # Always use -9 on file compression
 alias zip='zip -9'
 alias gzip='gzip -9'
