@@ -8,8 +8,12 @@ alias mkdir='mkdir -v'
 alias rmdir='rmdir -v'
 
 alias ll='ls -alF'
-alias la='ls -A'
+alias l1='ls -1F'
+alias la='ls -AF'
 alias l='ls -CF'
+
+# Always print physical directory location
+alias pwd='pwd -P'
 
 # Ensure the right rename is used
 alias prename='perl-rename'
