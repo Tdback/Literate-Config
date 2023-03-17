@@ -150,6 +150,11 @@
 
 (use-package all-the-icons)
 
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
 (use-package which-key
   :defer 0
   :diminish which-key-mode
@@ -645,6 +650,9 @@
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "H" 'dired-hide-dotfiles-mode))
+
+(use-package simple-httpd
+  :ensure t)
 
 ;; Make gc pauses faster by decreasing the threshold
 (setq gc-cons-threshold (* 2 1000 1000))

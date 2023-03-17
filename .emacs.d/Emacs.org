@@ -216,6 +216,17 @@
 
 #+end_src
 
+** Beacon
+
+#+begin_src emacs-lisp
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1))
+
+#+end_src
+
 ** Which Key
 
 #+begin_src emacs-lisp
@@ -955,6 +966,21 @@
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "H" 'dired-hide-dotfiles-mode))
+
+#+end_src
+
+* Web hosting files
+
+** simple-httpd
+
+- Used to host files as a webiste on local machine so they can be pulled up in the browser. Great for serving up html directories!
+- Run =M-x httpd-serve-directory= and select a directory to serve from within Emacs
+- Use =httpd-port= to set the port manually
+
+#+begin_src emacs-lisp
+
+(use-package simple-httpd
+  :ensure t)
 
 #+end_src
 
