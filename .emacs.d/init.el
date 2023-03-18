@@ -44,48 +44,52 @@
 
 (setq inhibit-startup-message t)
 
-(scroll-bar-mode -1)		; Disable visible scrollbar 
-(tool-bar-mode -1)		; Disable the toolbar
-(tooltip-mode -1)		; Disable tooltips
-(set-fringe-mode 15)		; Give some breathing room
+  (scroll-bar-mode -1)		; Disable visible scrollbar 
+  (tool-bar-mode -1)		; Disable the toolbar
+  (tooltip-mode -1)		; Disable tooltips
+  (set-fringe-mode 15)		; Give some breathing room
 
-(menu-bar-mode -1)	       	; Disable the menu bar
+  (menu-bar-mode -1)	       	; Disable the menu bar
 
-;; Set up the visible bell
-(setq ring-bell-function 'ignore)
+  ;; Set up the visible bell
+  (setq ring-bell-function 'ignore)
 
-;; Using spaces instead of tabs for indentation
-(setq-default indent-tabs-mode nil)
+  ;; Using spaces instead of tabs for indentation
+  (setq-default indent-tabs-mode nil)
 
-;; Set line numbers
-;; (column-number-mode)
-;; (setq display-line-numbers-type 'relative)
-;; (global-display-line-numbers-mode t)
+  ;; Set line numbers
+  ;; (column-number-mode)
+  ;; (setq display-line-numbers-type 'relative)
+  ;; (global-display-line-numbers-mode t)
 
-;; Disable line numbers for some modes
-(dolist (mode '(org-mode-hook
-                term-mode-hook
-                vterm-mode-hook
-                shell-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-       
-;; Scrolling like vim
-(setq scroll-margin 10)
-(setq scroll-step 1)
+  ;; Disable line numbers for some modes
+  (dolist (mode '(org-mode-hook
+                  term-mode-hook
+                  vterm-mode-hook
+                  shell-mode-hook
+                  eshell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; Save place
-(save-place-mode 1)
-(setq save-place-forget-unreadable-files nil)
+  ;; Scrolling like vim
+  (setq scroll-margin 10)
+  (setq scroll-step 1)
 
-;; UTF-8 encoding
-(prefer-coding-system 'utf-8)
+  ;; Save place
+  (save-place-mode 1)
+  (setq save-place-forget-unreadable-files nil)
 
-;; Dont' ask to spell out "yes"
-(fset 'yes-or-no-p 'y-or-n-p)
+  ;; UTF-8 encoding
+  (prefer-coding-system 'utf-8)
 
-;; Set mouse-pointer to disappear when typing
-(setq make-pointer-invisible t) ;; Edit this
+  ;; Dont' ask to spell out "yes"
+  (fset 'yes-or-no-p 'y-or-n-p)
+
+  ;; Set mouse-pointer to disappear when typing
+  (setq make-pointer-invisible t) ;; Edit this
+
+;; Let the desktop background show through
+(set-frame-parameter (selected-frame) 'alpha '(97 . 100))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 ;; Set font
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
@@ -453,6 +457,34 @@
         (org-roam-capture-templates (list (append (car org-roam-capture-templates)
                                                    '(:immediate-finish t)))))
     (apply #'org-roam-node-insert args)))
+
+(defun td/org-present-start ()
+  ;; tweak font sizes
+  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                     (header-line (:height 4.0) variable-pitch)
+                                     (org-document-title (:height 1.75) org-document-title)
+                                     (org-code (:height 1.55) org-code)
+                                     (org-verbatim (:height 1.55) org-verbatim)
+                                     (org-block (:height 1.25) org-block)
+                                     (org-block-begin-line (:height 0.7) org-block))))
+
+(defun td/org-present-end ()
+  (setq-local face-remapping-alist '((default variable-pitch default))))
+
+(defun td/org-present-prepare-slide (buffer-name heading)
+  ;; Show only top-level headlines
+  (org-overview)
+  ;; Unfold current entry
+  (org-show-entry)
+  ;; Show only direct subheadings of the slide but don't expand them
+  (org-show-children))
+
+(use-package org-present
+  :ensure t
+  :hook
+  ((org-present-mode . td/org-present-start)
+   (org-present-mode-quit . td/org-present-end)
+   (org-present-after-navigate-functions . td/org-present-prepare-slide)))
 
 (use-package eglot
   :ensure t :defer t 
