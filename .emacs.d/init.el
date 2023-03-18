@@ -365,7 +365,7 @@
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (defun td/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
+  (setq visual-fill-column-width 110
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
