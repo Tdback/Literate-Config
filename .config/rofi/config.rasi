@@ -1,8 +1,8 @@
 configuration {
-  display-drun: "Applications:";
+  display-drun: "Apps:";
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
-  font: "RedHatMono Nerd Font 10";
+  font: "RedHatMono Nerd Font 11";
   modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Papirus";
@@ -11,8 +11,8 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #363636;
-  bg-alt: #555;
+  bg: #0A0E19;
+  bg-alt: #363636;
 
   fg: #FFFFFF;
   fg-alt: #787c99;
@@ -26,7 +26,7 @@ configuration {
 }
 
 window {
-  width: 50%;
+  width: 35%;
 }
 
 element {
@@ -45,7 +45,7 @@ element-text {
 }
 
 element-icon {
-  size: 30;
+  size: 35;
 }
 
 entry {
@@ -60,8 +60,8 @@ inputbar {
 
 listview {
   background-color: @bg;
-  columns: 1;
-  lines: 8;
+  columns: 2;
+  lines: 6;
 }
 
 prompt {
