@@ -29,6 +29,15 @@ zstyle :compinstall filename '/home/td/.zshrc'
 autoload -Uz compinit
 compinit
 
+# Plugins
+# Remember to remove 'underline' in main/main-highlighter.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# history substring search options
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 if [ -f ~/.zsh_aliases ] ; then
 	. ~/.zsh_aliases
 fi
