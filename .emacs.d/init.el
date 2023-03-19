@@ -44,52 +44,52 @@
 
 (setq inhibit-startup-message t)
 
-  (scroll-bar-mode -1)		; Disable visible scrollbar 
-  (tool-bar-mode -1)		; Disable the toolbar
-  (tooltip-mode -1)		; Disable tooltips
-  (set-fringe-mode 15)		; Give some breathing room
+(scroll-bar-mode -1)		; Disable visible scrollbar 
+(tool-bar-mode -1)		; Disable the toolbar
+(tooltip-mode -1)		; Disable tooltips
+(set-fringe-mode 15)		; Give some breathing room
 
-  (menu-bar-mode -1)	       	; Disable the menu bar
+(menu-bar-mode -1)	       	; Disable the menu bar
 
-  ;; Set up the visible bell
-  (setq ring-bell-function 'ignore)
+;; Set up the visible bell
+(setq ring-bell-function 'ignore)
 
-  ;; Using spaces instead of tabs for indentation
-  (setq-default indent-tabs-mode nil)
+;; Using spaces instead of tabs for indentation
+(setq-default indent-tabs-mode nil)
 
-  ;; Set line numbers
-  ;; (column-number-mode)
-  ;; (setq display-line-numbers-type 'relative)
-  ;; (global-display-line-numbers-mode t)
+;; Set line numbers
+(column-number-mode)
+;; (setq display-line-numbers-type 'relative)
+;; (global-display-line-numbers-mode t)
 
-  ;; Disable line numbers for some modes
-  (dolist (mode '(org-mode-hook
-                  term-mode-hook
-                  vterm-mode-hook
-                  shell-mode-hook
-                  eshell-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                vterm-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-  ;; Scrolling like vim
-  (setq scroll-margin 10)
-  (setq scroll-step 1)
+;; Scrolling like vim
+(setq scroll-margin 10)
+(setq scroll-step 1)
 
-  ;; Save place
-  (save-place-mode 1)
-  (setq save-place-forget-unreadable-files nil)
+;; Save place
+(save-place-mode 1)
+(setq save-place-forget-unreadable-files nil)
 
-  ;; UTF-8 encoding
-  (prefer-coding-system 'utf-8)
+;; UTF-8 encoding
+(prefer-coding-system 'utf-8)
 
-  ;; Dont' ask to spell out "yes"
-  (fset 'yes-or-no-p 'y-or-n-p)
+;; Dont' ask to spell out "yes"
+(fset 'yes-or-no-p 'y-or-n-p)
 
-  ;; Set mouse-pointer to disappear when typing
-  (setq make-pointer-invisible t) ;; Edit this
+;; Set mouse-pointer to disappear when typing
+(setq make-pointer-invisible t) ;; Edit this
 
 ;; Let the desktop background show through
-(set-frame-parameter (selected-frame) 'alpha '(97 . 100))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 ;; Set font
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
