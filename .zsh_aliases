@@ -26,6 +26,9 @@ alias zip='zip -9'
 alias gzip='gzip -9'
 alias bzip2='bzip2 -9'
 
+# For showing off the system
+alias neo='neofetch | lolcat'
+
 # Python
 alias py='/usr/bin/python3'
 alias python='/usr/bin/python3'
