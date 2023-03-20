@@ -4,6 +4,7 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
+# enable cd with just pathnames
 setopt autocd
 
 # evil mode
@@ -29,18 +30,25 @@ zstyle :compinstall filename '/home/td/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Plugins
+# Source plugins ( using . )
+# syntax highlighting like fish
 # Remember to remove 'underline' in main/main-highlighter.zsh
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+[ -d ~/.config/zsh/zsh-syntax-highlighting ] && 
+	. ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# history substring
+[ -d ~/.config/zsh/zsh-history-substring-search ] &&
+	. ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # history substring search options
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-if [ -f ~/.zsh_aliases ] ; then
-	. ~/.zsh_aliases
-fi
+# Source aliases file
+[ -f ~/.zsh_aliases ] && . ~/.zsh_aliases
+
+# Source functions file
+[ -f ~/.zsh_functions ] && . ~/.zsh_functions
 
 # Enable starship prompt
 eval "$(starship init zsh)"
