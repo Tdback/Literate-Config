@@ -145,7 +145,7 @@
   (evil-collection-init))
 
 (use-package doom-themes
-  :init (load-theme 'doom-molokai t))
+  :init (load-theme 'doom-ayu-dark t))
 
 (use-package doom-modeline
   :ensure t

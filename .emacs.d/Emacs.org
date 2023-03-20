@@ -198,12 +198,12 @@
 
 ** Color Theme
 
-- Themes I like: doom-ayu-dark, nord, homage-black, vibrant, horizon, Iosvkem
+- Themes I like: doom-ayu-dark, nord, homage-black, vibrant, horizon, Iosvkem, doom-molokai
 
 #+begin_src emacs-lisp
 
 (use-package doom-themes
-  :init (load-theme 'doom-molokai t))
+  :init (load-theme 'doom-ayu-dark t))
 
 #+end_src
 
