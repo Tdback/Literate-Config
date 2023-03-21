@@ -33,12 +33,10 @@ compinit
 # Source plugins ( using . )
 # syntax highlighting like fish
 # Remember to remove 'underline' in main/main-highlighter.zsh
-[ -d ~/.config/zsh/zsh-syntax-highlighting ] && 
-	. ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -d ~/.config/zsh/zsh-syntax-highlighting ] && . ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # history substring
-[ -d ~/.config/zsh/zsh-history-substring-search ] &&
-	. ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+[ -d ~/.config/zsh/zsh-history-substring-search ] && . ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # history substring search options
 bindkey '^[[A' history-substring-search-up
