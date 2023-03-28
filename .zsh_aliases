@@ -26,6 +26,9 @@ alias zip='zip -9'
 alias gzip='gzip -9'
 alias bzip2='bzip2 -9'
 
+# Always use gpg2
+alias gpg='gpg2'
+
 # For showing off the system
 alias neo='neofetch | lolcat'
 
