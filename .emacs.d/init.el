@@ -92,13 +92,13 @@
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 ;; Set font
-(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
+(set-face-attribute 'default nil :font "FantasqueSansMono Nerd Font" :height 170)
 
 ;; Set fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 140)
+(set-face-attribute 'fixed-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
 
 ;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font" :height 140)
+(set-face-attribute 'variable-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
