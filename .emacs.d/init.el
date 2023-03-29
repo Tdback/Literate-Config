@@ -563,6 +563,9 @@
 (use-package yaml-mode
   :ensure t :mode "\\.yml\\'")
 
+(add-hook 'sh-mode-hook
+  (lambda () (setq sh-basic-offset 2)))
+
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 

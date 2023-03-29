@@ -797,6 +797,15 @@
 
 #+end_src
 
+** bash
+
+#+begin_src emacs-lisp
+
+(add-hook 'sh-mode-hook
+  (lambda () (setq sh-basic-offset 2)))
+
+#+end_src
+
 ** Commenting Lines
 
 - =M-/= to comment/uncomment lines
