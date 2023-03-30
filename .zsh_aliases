@@ -21,10 +21,11 @@ alias prename='perl-rename'
 # Make bat function like cat
 alias bat='bat --paging=never'
 
-# Always use -9 on file compression
-alias zip='zip -9'
-alias gzip='gzip -9'
-alias bzip2='bzip2 -9'
+# Always use -9 on file compression (except xz)
+alias zip='zip -9v'
+alias gzip='gzip -9v'
+alias bzip2='bzip2 -9v'
+alias xz='xz -v'
 
 # Always use gpg2
 alias gpg='gpg2'
