@@ -1,0 +1,5 @@
+# Functions called by ~/.zshrc
+
+# A command line awk calculator for simple arithmetic operations.
+# Don't forget to wrap quotes around the arguments.
+awc () { awk "BEGIN { print $* }" ;}
