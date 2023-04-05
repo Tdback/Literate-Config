@@ -1,5 +1,36 @@
-# Functions called by ~/.zshrc
+# Functions sourced by ~/.zshrc
 
-# A command line awk calculator for simple arithmetic operations.
-# Don't forget to wrap quotes around the arguments.
+#  A command line awk calculator for simple arithmetic operations. Don't forget 
+#+ to wrap quotes around the arguments.
 awc () { awk "BEGIN { print $* }" ;}
+
+# Create and go to directory
+mkdirg () { mkdir -p "$1"; cd "$1" ;}
+
+# Copy and go to directory
+cpg () {
+  if [ -d "$2" ]; then
+    cp "$1" "$2" && cd "$2"
+  else
+    cp "$1" "$2"
+  fi
+}
+
+# Move and go to directory
+mvg () {
+  if [ -d "$2" ]; then
+    mv "$1" "$2" && cd "$2"
+  else
+    mv "$1" "$2"
+  fi
+}
+
+#  Search for text in all files in current directory using the following:
+#+ -i: case-insensitive
+#+ -I: ignore binary files
+#+ -H: display file name
+#+ -n: display line numbers
+#+ -r: recursive search
+#+ -P: PCRE regex (optional, use -E for egrep-like queries)
+ftext () { grep -iIHnrP "$1" | less ;}
+
