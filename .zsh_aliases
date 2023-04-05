@@ -1,9 +1,10 @@
-# Aliases called by ~/.zshrc
+# Aliases sourced by ~/.zshrc
 
 # Terminal
+# File creation, destruction, etc.
 alias cp='cp -iv'
 alias rm='rm -Idv'
-alias mv='mv -v'
+alias mv='mv -iv'
 alias mkdir='mkdir -v'
 alias rmdir='rmdir -v'
 
@@ -11,6 +12,9 @@ alias ll='ls -alF'
 alias l1='ls -1F'
 alias la='ls -AF'
 alias l='ls -CF'
+
+# Directory traversal
+alias bd='cd "$OLDPWD"'
 
 # Always print physical directory location
 alias pwd='pwd -P'
@@ -21,6 +25,7 @@ alias prename='perl-rename'
 # Make bat function like cat
 alias bat='bat --paging=never'
 
+# Compression utilities
 # Always use -9 on file compression (except xz)
 alias zip='zip -9v'
 alias gzip='gzip -9v'
