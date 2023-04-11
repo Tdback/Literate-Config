@@ -1,9 +1,5 @@
 #+TITLE:Tdback's Arch Config
 
-/There are islands of Mac devices, but Linux is the ocean. There are clouds of Windows servers, but Linux is the sky.../
+Welcome home!
 
-Welcome to /my/ Arch Linux!
-
-Linux Mint, although a wonderful distro, felt too restricting and like something was missing. After distro hopping for some time, I wanted to get away from Debian-based distros like Ubuntu and Mint for a change. So, like any reasonable person would do, I installed Arch and created my own operating system!
-
-Here's my configuration, which includes tools such as alacritty, bspwm, sxhkd, rofi, polybar, and of course Emacs, which started my entire journey into the world of endless customization. Feel free to steal any code you would like!
+Here's my configuration for Arch Linux. You'll find dotfiles for the basis of my operating system: alacritty, my terminal emulator; bspwm, my window manager (WM) and sxhkd, the X daemon for my WM's hotkeys; polybar (the bar at the top of my screen); rofi, my application launcher; Emacs, my text editor of choice, and a slew of shell functions, aliases, and more!
