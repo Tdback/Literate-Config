@@ -35,4 +35,4 @@ mvg () {
 ftext () { grep -iIHnrP "$1" | less ;}
 
 # List total number of pacman packages installed on the system
-pkgs () { pacman -Q | wc -l ;} 
+pkgs () { pacman -Q | wc -l | xargs -I{} echo "Packages installed: {}" ;} 
