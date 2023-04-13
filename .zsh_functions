@@ -34,3 +34,5 @@ mvg () {
 #+ -P: PCRE regex (optional, use -E for egrep-like queries)
 ftext () { grep -iIHnrP "$1" | less ;}
 
+# List total number of pacman packages installed on the system
+pkgs () { pacman -Q | wc -l ;} 
