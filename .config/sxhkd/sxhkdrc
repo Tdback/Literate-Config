@@ -15,20 +15,28 @@ super + r
 	rofi -show drun 
 
 # My program hotkeys
+# Browser
 super + b
 	brave
 
+# Take screenshots
 super + p
 	flameshot full -p $HOME/.local/screenshots
 
 super + shift + p
 	flameshot gui -p $HOME/.local/screenshots
 
+# Emacs
 super + e
 	emacs
 
+# GUI File manager
 super + n
 	thunar
+
+# Lockscreen
+super + l
+	betterlockscreen --lock blur
 
 # Reload polybar
 super + Escape
