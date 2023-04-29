@@ -697,10 +697,9 @@
 (use-package simple-httpd
   :ensure t)
 
-(erc-tls :server "irc.libera.chat"
-         :port 6697)
-
-(setq erc-nick "tdback"
+(setq erc-server "irc.libera.chat"
+      erc-port 6697
+      erc-nick "tdback"
       erc-user-full-name "Tyler Dback"
       erc-track-shorten-start 8
       ;; Kill buffer when leaving channel
