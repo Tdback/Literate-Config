@@ -697,5 +697,20 @@
 (use-package simple-httpd
   :ensure t)
 
+(erc-tls :server "irc.libera.chat"
+         :port 6697)
+
+(setq erc-nick "tdback"
+      erc-user-full-name "Tyler Dback"
+      erc-track-shorten-start 8
+      ;; Kill buffer when leaving channel
+      erc-kill-buffer-on-part t
+      ;; Bury buffer from any /msg
+      erc-auto-query 'bury
+      ;; Set prompt to current channel
+      erc-prompt (lambda () (concat "[" (buffer-name) "]"))
+      ;; Tweak the way ERC recognizes URLs (might include false-positives)
+      erc-button-url-regexp "\\([-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]+\\.\\)+[-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]*[-a-zA-Z0-9\\/]")
+
 ;; Make gc pauses faster by decreasing the threshold
 (setq gc-cons-threshold (* 2 1000 1000))
