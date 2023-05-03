@@ -2,11 +2,17 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 (defun td/display-startup-time ()
-(message "Emacs loaded in %s with %d garbage collections."
+  (if (daemonp)
+    (message "Emacs loaded in the daemon in %s with %d garbage collections."
          (format "%.2f seconds"
                  (float-time
                   (time-subtract after-init-time before-init-time)))
-         gcs-done))
+         gcs-done)
+    (message "Emacs loaded in %s with %d garbage collections."
+         (format "%.2f seconds"
+                 (float-time
+                  (time-subtract after-init-time before-init-time)))
+         gcs-done)))
 
 (add-hook 'emacs-startup-hook #'td/display-startup-time)
 
@@ -99,14 +105,25 @@
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
-;; Set font
-(set-face-attribute 'default nil :font "FantasqueSansMono Nerd Font" :height 170)
+(defun td/set-font-faces ()
+  (message "Setting font faces!")
+  ;; Set font
+  (set-face-attribute 'default nil :font "FantasqueSansMono Nerd Font" :height 170)
 
-;; Set fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
+  ;; Set fixed pitch face
+  (set-face-attribute 'fixed-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
 
-;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
+  ;; Set the variable pitch face
+  (set-face-attribute 'variable-pitch nil :font "FantasqueSansMono Nerd Font" :height 170))
+
+;; Fix fonts when running emacsclient (in daemon)
+(if (daemonp)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              (setq doom-modeline-icon t)
+              (with-selected-frame frame
+                (td/set-font-faces))))
+  (td/set-font-faces))
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
