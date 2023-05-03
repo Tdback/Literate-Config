@@ -26,9 +26,9 @@ super + p
 super + shift + p
 	flameshot gui -p $HOME/.local/screenshots
 
-# Emacs
+# Emacs (daemon)
 super + e
-	emacs
+	emacsclient -c -n
 
 # GUI File manager
 super + n
