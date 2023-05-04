@@ -4,6 +4,6 @@
 xset r rate 350 40
 
 # Start Emacs daemon
-if [[ ! $(ps aux | grep "[e]macs --daemon") ]]; then
+if [[ ! $(ps aux | grep -q "[e]macs --daemon") ]]; then
   emacs --daemon 
 fi
