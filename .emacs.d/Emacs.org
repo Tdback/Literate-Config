@@ -799,7 +799,7 @@
   :ensure t
   :commands (sly sly-connect)
   :config
-  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
 
 #+end_src
 

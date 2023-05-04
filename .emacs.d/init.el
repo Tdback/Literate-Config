@@ -585,7 +585,7 @@
   :ensure t
   :commands (sly sly-connect)
   :config
-  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
 
 (use-package python-mode
   :ensure t :defer t :mode "\\.py\\'")
