@@ -803,6 +803,17 @@
 
 #+end_src
 
+** Geiser
+
+#+begin_src emacs-lisp
+
+;; To use guile scheme (or any scheme really)
+(use-package geiser-guile
+  :ensure t
+  :commands (geiser))
+
+#+end_src
+
 ** Python
 
 #+begin_src emacs-lisp
@@ -845,6 +856,18 @@
 
 (add-hook 'sh-mode-hook
   (lambda () (setq sh-basic-offset 2)))
+
+#+end_src
+
+** SpellChecking
+
+#+begin_src emacs-lisp
+
+(use-package jinx
+  :ensure t
+  :hook (org-mode-hook . jinx-mode)
+  :bind (("M-$"   . jinx-correct)
+         ("C-M-$" . jinx-languages)))
 
 #+end_src
 

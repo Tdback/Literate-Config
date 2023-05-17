@@ -587,6 +587,11 @@
   :config
   (setq inferior-lisp-program "/usr/bin/sbcl"))
 
+;; To use guile scheme (or any scheme really)
+(use-package geiser-guile
+  :ensure t
+  :commands (geiser))
+
 (use-package python-mode
   :ensure t :defer t :mode "\\.py\\'")
 
@@ -601,6 +606,12 @@
 
 (add-hook 'sh-mode-hook
   (lambda () (setq sh-basic-offset 2)))
+
+(use-package jinx
+  :ensure t
+  :hook (org-mode-hook . jinx-mode)
+  :bind (("M-$"   . jinx-correct)
+         ("C-M-$" . jinx-languages)))
 
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
