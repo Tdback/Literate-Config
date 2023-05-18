@@ -609,9 +609,10 @@
 
 (use-package jinx
   :ensure t
-  :hook (org-mode-hook . jinx-mode)
-  :bind (("M-$"   . jinx-correct)
-         ("C-M-$" . jinx-languages)))
+  :hook ((org-mode  . jinx-mode)
+         (text-mode . jinx-mode))
+  :bind (("M-$"     . jinx-correct)
+         ("C-M-$"   . jinx-languages)))
 
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
@@ -719,7 +720,7 @@
   (evil-collection-define-key 'normal 'dired-mode-map
     "h" 'dired-single-up-directory
     "l" 'dired-single-buffer)
-  (setq dired-listing-switches "-Aloh"))
+  (setq dired-listing-switches "-aghoA --group-directories-first"))
 
 (use-package dired-single
   :commands (dired dired-jump))
@@ -745,10 +746,9 @@
       erc-kill-buffer-on-part t
       ;; Bury buffer from any /msg
       erc-auto-query 'bury
-      ;; Set prompt to current channel
-      erc-prompt (lambda () (concat "[" (buffer-name) "]"))
-      ;; Tweak the way ERC recognizes URLs (might include false-positives)
-      erc-button-url-regexp "\\([-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]+\\.\\)+[-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]*[-a-zA-Z0-9\\/]")
+      erc-fill-column 120
+      erc-fill-function 'erc-fill-static
+      erc-fill-static-center 20)
 
 ;; Make gc pauses faster by decreasing the threshold
 (setq gc-cons-threshold (* 2 1000 1000))
