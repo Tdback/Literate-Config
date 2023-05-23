@@ -51,7 +51,7 @@ bspc rule -a Zathura state=tiled
 
 # Auto start programs
 sleep 0.50
-nitrogen --set-auto "$HOME/.config/bg.jpg" &
+nitrogen --set-auto "$HOME/.config/bg.png" &
 # picom &
 # /usr/bin/steam --start &
 
