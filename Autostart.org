@@ -1,0 +1,40 @@
+#+TITLE:Autostart scripts
+
+* Commands to run on bspwm startup 
+:PROPERTIES:
+:header-args:bash: :tangle ~/.config/autostart/startup.sh
+:END:
+
+First, the bash shell needs to be invoked so the operating system can call it in the background. For multi-platform usage, call bash using the env program (see =man env= for more details):
+
+#+begin_src bash
+
+  #!/usr/bin/env bash
+
+#+end_src
+
+** Setting the key-repetition speed
+
+This command sets the keyboard auto-repeat rate to an increased speed. That way I can move around a little bit faster when using `hjkl`:
+
+#+begin_src bash
+
+  xset r rate 350 40
+  
+#+end_src
+
+** Starting the Emacs daemon
+
+Since I constantly use Emacs across several workspaces in my day-to-day workflow, the Emacs daemon is a must have on startup. Using this quick bash conditional check, I can have the daemon automatically start up each time bspwm is started (or restarted manually).
+
+NOTE: /This could be replaced with =pgrep -x emacs=, but then the script would check for both the Emacs client *and* the Emacs daemon processes, which could lead to complications if bspwm was restarted and both processes were running (for whatever reason)./
+
+#+begin_src bash 
+
+  if [[ ! $(ps aux | grep -q "[e]macs --daemon") ]]; then
+    emacs --daemon
+  fi
+
+#+end_src
+
+
