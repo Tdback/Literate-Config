@@ -1,4 +1,4 @@
-#+TITLE:Autostart scripts
+#+TITLE:Autostart Scripts
 
 * Commands to run on bspwm startup 
 :PROPERTIES:
