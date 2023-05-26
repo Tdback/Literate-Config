@@ -1,0 +1,64 @@
+#+TITLE:Lockscreen Config
+
+* Betterlockscreenrc
+:PROPERTIES:
+:header-args:conf: :tangle ~/.config/betterlockscreenrc
+:END:
+
+[[https://github.com/betterlockscreen/betterlockscreen][betterlockscreen]] is a fast and awesome lock screen utility that I use to lock my system when I step away. For instance, to set up a new lock screen with a blurred image effect, use =betterlockscreen -u .config/bg.png --fx blur=. See =betterlockscreen --help= or the man page for more details.
+
+NOTE: /Many of the options in this file are left to their default./
+
+#+begin_src conf
+
+  # default options
+  display_on=0
+  span_image=false
+  lock_timeout=300
+  fx_list=(dim blur dimblur pixel dimpixel color)
+  dim_level=40
+  blur_level=1
+  pixel_scale=10,1000
+  solid_color=333333
+  wallpaper_cmd="feh --bg-fill"
+  quiet=false
+  # i3lockcolor_bin="i3lock-color" # Manually set command for i3lock-color
+
+  # default theme
+  loginbox=00000066
+  loginshadow=00000000
+  locktext="Type password to unlock..."
+
+#+end_src
+
+The only line in the configuration file that I changed was the font type, which I changed to FantasqueSansMono to match my system.
+
+#+begin_src conf
+
+  font="FantasqueSansMono Nerd Font"
+
+#+end_src
+
+The rest of the settings were left to their defaults.
+
+#+begin_src conf
+
+  ringcolor=ffffffff
+  insidecolor=00000000
+  separatorcolor=00000000
+  ringvercolor=ffffffff
+  insidevercolor=00000000
+  ringwrongcolor=ffffffff
+  insidewrongcolor=d23c3dff
+  timecolor=ffffffff
+  time_format="%H:%M"
+  greetercolor=ffffffff
+  layoutcolor=ffffffff
+  keyhlcolor=d23c3dff
+  bshlcolor=d23c3dff
+  verifcolor=ffffffff
+  wrongcolor=d23c3dff
+  modifcolor=d23c3dff
+  bgcolor=000000ff
+
+#+end_src
