@@ -5,7 +5,7 @@
 :header-args:conf: :tangle ~/.config/betterlockscreenrc
 :END:
 
-[[https://github.com/betterlockscreen/betterlockscreen][betterlockscreen]] is a fast and awesome lock screen utility that I use to lock my system when I step away. For instance, to set up a new lock screen with a blurred image effect, use =betterlockscreen -u .config/bg.png --fx blur=. See =betterlockscreen --help= or the man page for more details.
+[[https://github.com/betterlockscreen/betterlockscreen][betterlockscreen]] is a fast and awesome lock screen utility that I use to lock my system when I step away. Keybindings used to execute betterlockscreen can be found in my sxhkd configuration. For instance, to set up a new lock screen with a blurred image effect, use =betterlockscreen -u .config/bg.png --fx blur=. See =betterlockscreen --help= or the man page for more details.
 
 NOTE: /Many of the options in this file are left to their default./
 
