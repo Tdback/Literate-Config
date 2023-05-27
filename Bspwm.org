@@ -1,5 +1,7 @@
 #+TITLE:Bspwm Config
 
+NOTE: /Property header argument `:shebang "#!/bin/sh"` is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm./
+
 * Bspwm
 :PROPERTIES:
 :header-args:shell: :tangle ~/.config/bspwm/bspwmrc :shebang "#!/bin/sh"
