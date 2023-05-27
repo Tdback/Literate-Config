@@ -1,4 +1,4 @@
-#+TITLE:Tdback's Arch Config
+#+TITLE:Tdback's Literate Configuration
 
 Welcome home!
 
