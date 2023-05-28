@@ -144,6 +144,7 @@
 (setq make-pointer-invisible t) ;; Edit this
 
 ;; Let the desktop background show through
+;; Note: This only works with a compositor such as picom
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
@@ -156,13 +157,14 @@
 (defun td/set-font-faces ()
   (message "Setting font faces!")
   ;; Set font
-  (set-face-attribute 'default nil :font "FantasqueSansMono Nerd Font" :height 170)
+  (set-face-attribute 'default nil :font "FantasqueSansMNerdFont" :height 170)
 
   ;; Set fixed pitch face
-  (set-face-attribute 'fixed-pitch nil :font "FantasqueSansMono Nerd Font" :height 170)
+  (set-face-attribute 'fixed-pitch nil :font "FantasqueSansMNerdFont" :height 170)
 
   ;; Set the variable pitch face
-  (set-face-attribute 'variable-pitch nil :font "FantasqueSansMono Nerd Font" :height 170))
+  (set-face-attribute 'variable-pitch nil :font "FantasqueSansMNerdFont" :height 170))
+
 
 ;; Fix fonts when running emacsclient (in daemon)
 (if (daemonp)
@@ -172,6 +174,23 @@
               (with-selected-frame frame
                 (td/set-font-faces))))
   (td/set-font-faces))
+
+#+end_src
+
+
+** Ligatures
+
+#+begin_src emacs-lisp
+
+(use-package ligature
+  :config
+  ;; Enable all ligatures in all modes
+  (ligature-set-ligatures 't '("<>" "|>" "<|" "==" "===" "<=" ">=" "->"
+                               "<-" "-->" "<--" "==>" "<==" "||" "&&" "!="
+                               "<->" "<~" "~>" "~~" "<=>" "<<" ">>"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t))
 
 #+end_src
 
@@ -712,6 +731,7 @@
   :config
   (add-to-list 'eglot-server-programs '(c-mode      . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode    . ("clangd")))
+  (add-to-list 'eglot-server-programs '(elixir-mode . ("language_server.sh")))
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
   (add-to-list 'eglot-server-programs '(go-mode     . ("gopls")))
@@ -719,6 +739,7 @@
   ((python-mode   . eglot-ensure)
    (rust-mode     . eglot-ensure)
    (go-mode       . eglot-ensure)
+   (elixir-mode   . eglot-ensure)
    (c-mode        . eglot-ensure)
    (c++-mode      . eglot-ensure)))
 
@@ -809,8 +830,17 @@
 
 ;; To use guile scheme (or any scheme really)
 (use-package geiser-guile
-  :ensure t
+  :ensure t 
   :commands (geiser))
+
+#+end_src
+
+** Elixir
+
+#+begin_src emacs-lisp
+
+(use-package elixir-mode
+  :ensure t :defer t :mode "\\.exs\\'")
 
 #+end_src
 
