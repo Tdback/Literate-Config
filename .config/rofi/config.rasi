@@ -2,7 +2,7 @@ configuration {
   display-drun: "Apps:";
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
-  font: "FantasqueSansMono Nerd Font 11";
+  font: "FantasqueSansMNerdFont 11";
   modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Papirus";
