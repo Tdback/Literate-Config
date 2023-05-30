@@ -31,15 +31,15 @@ NOTE: /Many of the options in this file are left to their default./
 
 #+end_src
 
-The only line in the configuration file that I changed was the font type, which I changed to FantasqueSansMono to match my system.
+The only line in the configuration file that I changed was the font type, which I changed to `FantasqueSansMNerdFont' to match my system.
 
 #+begin_src conf
 
-  font="FantasqueSansMono Nerd Font"
+  font="FantasqueSansMNerdFont"
 
 #+end_src
 
-The rest of the settings were left to their defaults.
+The rest of the settings are left to their default values.
 
 #+begin_src conf
 
