@@ -182,15 +182,15 @@
 
 #+begin_src emacs-lisp
 
-(use-package ligature
-  :config
-  ;; Enable all ligatures in all modes
-  (ligature-set-ligatures 't '("<>" "|>" "<|" "==" "===" "<=" ">=" "->"
-                               "<-" "-->" "<--" "==>" "<==" "||" "&&" "!="
-                               "<->" "<~" "~>" "~~" "<=>" "<<" ">>"))
-  ;; Enables ligature checks globally in all buffers. You can also do it
-  ;; per mode with `ligature-mode'.
-  (global-ligature-mode t))
+  (use-package ligature
+    :config
+    ;; Enable all ligatures in all modes
+    (ligature-set-ligatures 't '("<>" "|>" "<|" "==" "===" "<=" ">=" "->"
+                                 "<-" "-->" "<--" "==>" "<==" "=>" "||" "&&"
+                                 "!=" "<->" "<~" "~>" "~~" "<=>" "<<" ">>"))
+    ;; Enables ligature checks globally in all buffers. You can also do it
+    ;; per mode with `ligature-mode'.
+    (global-ligature-mode t))
 
 #+end_src
 
@@ -732,6 +732,7 @@
   (add-to-list 'eglot-server-programs '(c-mode      . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode    . ("clangd")))
   (add-to-list 'eglot-server-programs '(elixir-mode . ("language_server.sh")))
+  (add-to-list 'eglot-server-programs '(ruby-mode . ("solargraph")))
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
   (add-to-list 'eglot-server-programs '(go-mode     . ("gopls")))
@@ -740,6 +741,7 @@
    (rust-mode     . eglot-ensure)
    (go-mode       . eglot-ensure)
    (elixir-mode   . eglot-ensure)
+   (ruby-mode     . eglot-ensure)
    (c-mode        . eglot-ensure)
    (c++-mode      . eglot-ensure)))
 
@@ -841,6 +843,15 @@
 
 (use-package elixir-mode
   :ensure t :defer t :mode "\\.exs\\'")
+
+#+end_src
+
+** Ruby
+
+#+begin_src emacs-lisp
+
+(use-package ruby-mode
+  :ensure t :defer t :mode "\\.rb\\'")
 
 #+end_src
 
