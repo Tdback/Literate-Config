@@ -1,13 +1,15 @@
 #+TITLE:Bspwm Config
 
-NOTE: /Property header argument `:shebang "#!/bin/sh"` is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm./
+NOTE: /Property header argument =:shebang "#!/bin/sh"= is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm. If you're using X (as I am), also ensure you've added =exec bspwm= to your/ =~/.xinitrc= /configuration file./
 
 * Bspwm
 :PROPERTIES:
 :header-args:shell: :tangle ~/.config/bspwm/bspwmrc :shebang "#!/bin/sh"
 :END:
 
-Define some variables.
+bspwm is by far my favorite tiling window manager, which represents windows as the leaves of a full binary tree. With it, I can take full advantage of a keyboard-centric workflow, and keybindings are set using a bash-like syntax with sxhkd, a simple X hotkey daemon.
+
+First, I define the colors to be used as the borders for each bspwm window. I usually stick to a dark-grey color-scheme for my border colors to avoid any unnecessary distractions when navigating my workspaces or windows.
 
 #+begin_src shell
 
@@ -18,6 +20,8 @@ Define some variables.
 
 ** Launch polybar
 
+Right after bspwm starts, the polybar startup script is ran so it is ready to go by the time the background is set and bspwm is finished initializing. This usually takes < 1 second.
+
 #+begin_src shell
 
   bash ~/.config/polybar/launch.sh &
@@ -25,6 +29,8 @@ Define some variables.
 #+end_src
 
 ** Launch startup script
+
+Each time bspwm is started (or restarted) this startup script is run, which accomplishes a variety of background tasks that I would otherwise have to run manually in =vterm= or =alacritty=.
 
 #+begin_src shell
 
@@ -99,7 +105,7 @@ Define some variables.
 
 #+end_src
 
-** Auto-start programs (set background)
+** Setting the background
 
 #+begin_src shell
 

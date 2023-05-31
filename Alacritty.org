@@ -14,6 +14,8 @@ The GPU enhanced terminal emulator.
 
 #+end_src
 
+** Window dimensions
+
 #+begin_src yaml
   window:
     #dimensions:
@@ -31,12 +33,16 @@ The GPU enhanced terminal emulator.
 
 #+end_src
 
+** Scrolling history
+
 #+begin_src yaml
 
   scrolling:
     history: 100000
 
 #+end_src
+
+** Fonts
 
 #+begin_src yaml
 
@@ -58,12 +64,16 @@ The GPU enhanced terminal emulator.
 
 #+end_src
 
+** Hiding the mouse
+
 #+begin_src yaml
 
   mouse:
     hide_when_typing: true
 
 #+end_src
+
+** Color-scheme
 
 #+begin_src yaml
 
@@ -97,5 +107,4 @@ The GPU enhanced terminal emulator.
       white:   '0xFFFFFF'
 
 #+end_src
-
 
