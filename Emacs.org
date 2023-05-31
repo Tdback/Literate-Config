@@ -732,7 +732,7 @@
   (add-to-list 'eglot-server-programs '(c-mode      . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode    . ("clangd")))
   (add-to-list 'eglot-server-programs '(elixir-mode . ("language_server.sh")))
-  (add-to-list 'eglot-server-programs '(ruby-mode . ("solargraph")))
+  (add-to-list 'eglot-server-programs '(ruby-mode   . ("solargraph" "socket" "--port" :autoport)))
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
   (add-to-list 'eglot-server-programs '(go-mode     . ("gopls")))
