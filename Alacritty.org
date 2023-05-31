@@ -1,6 +1,10 @@
 #+TITLE:Alacritty Config
 
+<<<<<<< HEAD
+Alacritty is a Rust-powered GPU enhanced terminal emulator. When I'm not using =vterm= in Emacs, this is usually my go-to terminal for executing quick one-liners in fish, bash, gawk, etc., installing packages via =pacman= or =yay=, or updating my system. 
+=======
 The GPU enhanced terminal emulator. 
+>>>>>>> 06e0bdc (Updated docs.)
 
 * alacritty.yml
 :PROPERTIES:
