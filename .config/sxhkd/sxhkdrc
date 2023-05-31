@@ -19,6 +19,10 @@ super + r
 super + b
 	brave
 
+# Messaging
+super + m
+        telegram-desktop
+
 # Take screenshots
 super + p
 	flameshot full -p $HOME/.local/screenshots
