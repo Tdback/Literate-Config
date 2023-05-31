@@ -1,11 +1,11 @@
 #+TITLE:Autostart Scripts
 
+NOTE: /Property header argument `:shebang "#!/usr/bin/env bash"' is required to make the script executable after tangling./
+
 * Commands to run on bspwm startup 
 :PROPERTIES:
 :header-args:bash: :tangle ~/.config/autostart/startup.sh :shebang "#!/usr/bin/env bash"
 :END:
-
-NOTE: /Property header argument/ =:shebang "#!/usr/bin/env bash"=  /is required to make the script executable after tangling./
 
 ** Setting the key-repetition speed
 
