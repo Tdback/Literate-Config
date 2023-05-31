@@ -1,13 +1,13 @@
 #+TITLE:Bspwm Config
 
+bspwm is by far my favorite tiling window manager, which represents windows as the leaves of a full binary tree. With it, I can take full advantage of a keyboard-centric workflow, and keybindings are set using a bash-like syntax with sxhkd, a simple X hotkey daemon.
+
 NOTE: /Property header argument `:shebang "#!/bin/sh"' is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm./
 
-* Bspwm
+* bspwmrc
 :PROPERTIES:
 :header-args:shell: :tangle ~/.config/bspwm/bspwmrc :shebang "#!/bin/sh"
 :END:
-
-bspwm is by far my favorite tiling window manager, which represents windows as the leaves of a full binary tree. With it, I can take full advantage of a keyboard-centric workflow, and keybindings are set using a bash-like syntax with sxhkd, a simple X hotkey daemon.
 
 NOTE: /If you're using X (as I am), ensure you've added/ =exec bspwm= /to your/ =~/.xinitrc= /configuration file./
 

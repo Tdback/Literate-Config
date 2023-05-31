@@ -1,11 +1,11 @@
 #+TITLE:Alacritty Config
 
-* Alacritty
+The GPU enhanced terminal emulator. 
+
+* alacritty.yml
 :PROPERTIES:
 :header-args:yaml: :tangle ~/.config/alacritty/alacritty.yml
 :END:
-
-The GPU enhanced terminal emulator. 
 
 #+begin_src yaml
 
