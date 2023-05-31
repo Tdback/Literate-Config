@@ -148,6 +148,11 @@
 ;; (set-frame-parameter (selected-frame) 'alpha '(97 . 100))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
+;; Only open the buffer if there is output
+(setq async-shell-command-display-buffer nil)
+;; Uncomment if multiple buffers should be spawned when running several async shell commands at once.
+;; (setq async-shell-command-buffer new-buffer)
+
 #+end_src
 
 ** Font Configuration
