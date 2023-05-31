@@ -1,6 +1,7 @@
 #+TITLE:Bspwm Config
 
-NOTE: /Property header argument/ =:shebang "#!/bin/sh"= /is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm. If you're using X (as I am), also ensure you've added/ =exec bspwm= /to your/ =~/.xinitrc= /configuration file./
+NOTE: /Property header argument/ =:shebang "#!/bin/sh"= /is required to make the script executable after tangling, or else bspwm will refuse to start after login through sddm./
+/If you're using X (as I am), also ensure you've added/ =exec bspwm= /to your/ =~/.xinitrc= /configuration file./
 
 * Bspwm
 :PROPERTIES:
