@@ -949,10 +949,9 @@
 
 ** Magit
 
-- The BUG!
+- Like magic, not a `maggot' bug.
 - =C-x g= FTW!
-- =?= for git help
-- =C-c= when committing
+- =?= if you need help.
 
 #+begin_src emacs-lisp
 
