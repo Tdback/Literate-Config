@@ -6,15 +6,13 @@ NOTE: /This repository is currently being re-written as literate configuration u
 
 Here's my configuration for Arch Linux. You'll find dotfiles for the basis of my operating system: alacritty, my terminal emulator; bspwm, my window manager (WM) and sxhkd, the X daemon for my WM's hotkeys; polybar (the bar at the top of my screen); rofi, my application launcher; Emacs, my text editor of choice, and a slew of shell functions, aliases, and more!
 
-* Why a literate configuration?
+* What is literate programming?
 
-(Insert reason here :)
+Literate programming was originally conceived by Donald Knuth, in an effort to achieve significantly better documentation for programs. Knuth created the *WEB* system, which would both /weave/ and /tangle/ a literate programming document, which was composed of both text and blocks of code, producing (for example) both a LaTeX document and Pascal program. If you would like to read additional information regarding the origin of literate programming, the original paper can be found [[http://www.literateprogramming.com/knuthweb.pdf][here]].
 
 * Gallery
 
 [[./desktop.png]]
 
 
-* What is literate programming?
-
-http://www.literateprogramming.com/knuthweb.pdf
+Hack away, hack away!
