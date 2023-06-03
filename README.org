@@ -1,9 +1,20 @@
 #+TITLE:Tdback's Literate Configuration
 
-[[./desktop.png]]
-
 Welcome home!
+
+NOTE: /This repository is currently being re-written as literate configuration using org-mode and Emacs. For the original source files, look to the commit history./
 
 Here's my configuration for Arch Linux. You'll find dotfiles for the basis of my operating system: alacritty, my terminal emulator; bspwm, my window manager (WM) and sxhkd, the X daemon for my WM's hotkeys; polybar (the bar at the top of my screen); rofi, my application launcher; Emacs, my text editor of choice, and a slew of shell functions, aliases, and more!
 
-NOTE: /This repository is currently being re-written as literate configuration using org-mode and Emacs. For the original source files, look to the commit history./
+* Why a literate configuration?
+
+(Insert reason here :)
+
+* Gallery
+
+[[./desktop.png]]
+
+
+* What is literate programming?
+
+http://www.literateprogramming.com/knuthweb.pdf
