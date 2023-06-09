@@ -17,7 +17,7 @@ super + r
 # My program hotkeys
 # Browser
 super + b
-	brave
+	firefox
 
 # Messaging
 super + m
