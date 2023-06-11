@@ -1,0 +1,283 @@
+#+TITLE:Sxhkd Config
+
+* sxhkdrc
+:PROPERTIES:
+:header-args:bash: :tangle ~/.config/sxhkd/sxhkdrc 
+:END:
+
+** Program hotkeys
+
+*** Rofi
+
+**** Switching nodes
+
+#+begin_src bash
+
+  alt + Tab
+          rofi -show window
+
+#+end_src
+
+**** Program launcher
+
+#+begin_src bash
+
+  super + r
+          rofi -show drun 
+
+#+end_src
+
+*** Emacs 
+
+#+begin_src bash
+
+  super + e
+          emacsclient -c -n
+
+#+end_src
+
+*** Terminal Emulator
+
+#+begin_src bash
+
+  super + x
+          alacritty
+
+#+end_src
+
+*** GUI File Manager
+
+#+begin_src bash
+
+  super + n
+          thunar
+
+#+end_src
+
+*** Browser
+
+#+begin_src bash
+
+  super + b
+          firefox
+
+#+end_src
+
+*** Messaging
+
+#+begin_src bash
+
+  super + m
+          telegram-desktop
+
+#+end_src
+
+*** Screenshots
+
+#+begin_src bash
+
+  super + p
+          flameshot full -p $HOME/.local/screenshots
+
+  super + shift + p
+          flameshot gui -p $HOME/.local/screenshots
+
+#+end_src
+
+*** Lockscreen
+
+#+begin_src bash
+
+  super + shift + n
+          betterlockscreen --lock blur
+
+#+end_src
+
+*** Reload polybar
+
+#+begin_src bash
+
+  super + Escape
+          $HOME/.config/polybar/launch.sh
+
+#+end_src
+
+*** Reloading sxhkdrc configuration
+
+#+begin_src bash
+
+  super + shift + Escape
+          pkill -USR1 -x sxhkd
+
+#+end_src
+
+** bspwm hotkeys
+
+*** Quit/Restart bspwm
+
+#+begin_src bash
+
+super + alt + {q,r}
+        bspc {quit,wm -r}
+
+#+end_src
+
+*** Close and kill application
+
+#+begin_src bash
+
+  super + q
+          bspc node -{c,k}
+
+#+end_src
+
+*** Change window state
+
+#+begin_src bash
+
+  super + f
+          bspc node focused.tiled -t fullscreen
+
+  super + t
+          bspc node focused.fullscreen -t tiled
+
+  super + shift + f
+          bspc node focused.tiled -t floating
+
+  super + shift + t
+          bspc node focused.floating -t tiled
+
+#+end_src
+
+*** Focus/swap
+
+**** Focus node in given direction
+
+#+begin_src bash
+
+  super + {_,shift + }{h,j,k,l}
+          bspc node -{f,s} {west,south,north,east}
+
+#+end_src
+
+**** Focus the next/previous window in the current desktop
+
+#+begin_src bash
+
+  super + {_,shift}c
+          bspc node -f {next,prev}.local.!hidden.window
+
+#+end_src
+
+**** Focus the next/previous desktop in the current monitor
+
+#+begin_src bash
+
+  super + bracket{left,right}
+          bspc desktop -f {prev,next}.local
+
+#+end_src
+
+**** Focus the last node/desktop
+
+#+begin_src bash
+
+  super + {grave,Tab}
+          bspc {node,desktop} -f last
+
+#+end_src
+
+**** Focus the older/newer node in the focus history
+
+#+begin_src bash
+
+  super + {o,i}
+          bspc wm -h off; \
+          bspc node {older,newer} -f; \
+          bspc wm -h on
+
+#+end_src
+
+**** Focus or send to the given desktop
+
+#+begin_src bash
+
+  super + {_,shift + }{1-9,0}
+          bspc {desktop -f, node -d} '^{1-9,10}'
+
+#+end_src
+
+*** Move/Resize
+
+**** Expand window outward
+
+#+begin_src bash
+
+  super + alt + {h,j,k,l}
+          bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
+
+#+end_src
+
+**** Contract a window inward
+
+#+begin_src bash
+
+  super + alt + shift {h,j,k,l}
+          bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
+
+#+end_src
+
+**** Move a floating window
+
+#+begin_src bash
+
+  super + {Left,Down,Up,Right}
+          bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#+end_src
+
+*** Function hotkeys
+
+**** Media keys
+
+#+begin_src bash
+
+  XF86AudioPrev
+          playerctl previous
+
+  XF86AudioNext
+          playerctl next
+
+  XF86AudioPlay
+          playerctl play-pause
+
+#+end_src
+
+**** Volume keys
+
+#+begin_src bash
+
+  XF86AudioLowerVolume
+          amixer -D pulse sset Master 5%-
+
+  XF86AudioRaiseVolume
+          amixer -D pulse sset Master 5%+
+
+  XF86AudioMute
+          amixer -D pulse sset Master toggle
+
+#+end_src
+
+**** Brightness
+
+This functionality is still a work in progress. I plan to use brillo, but my current keyboard doesn't have any function keys available to adjust monitor brightness. Waiting on new keyboard.
+
+#+begin_src bash
+
+  XF86MonBrightnessUp
+          changebrightness up
+
+  XF86MonBrightnessDown
+          changebrightness down
+
+#+end_src
