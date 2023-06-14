@@ -10,7 +10,9 @@ To set up the configuration files, simply execute the following in your terminal
 
   $ git clone https://github.com/Tdback/Literate-Config/
 
-  $ chmod +x tangle.sh
+  $ mv -v Literate-Config/* ~/.dotfiles/ && rmdir Literate-Config/
+
+  $ cd ~/.dotfiles/ && chmod +x tangle.sh
 
   $ ./tangle.sh
 
