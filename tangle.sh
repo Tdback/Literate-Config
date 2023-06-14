@@ -9,5 +9,5 @@ mkdir -p ./.temp
 
 emacs -Q --script tangler.el 
 
-echo "Removing temporary directory..."
+echo "Cleaning up dependencies and temporary directory..."
 rm -rf ./.temp

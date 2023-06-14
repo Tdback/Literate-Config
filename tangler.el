@@ -2,6 +2,7 @@
 
 ;; Set the package installation directory so that packages aren't stored in the
 ;; ~/.emacs.d/elpa path
+(message "Installing org-mode dependencies...")
 (require 'package)
 (setq package-user-dir (expand-file-name "./.temp"))
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -31,8 +32,7 @@ files that should be tangled."
   "Tangles a single .org file relative to the path in
 dotfiles-folder. If no file is specified, tangle the current file
 if it is an org-mode buffer inside of dotfiles-folder."
-  (interactive "F")
-  (message "File: %s" org-file)
+  (message "Tangling file: %s" org-file)
   ;; Suppress prompts and messages
   (let ((org-confirm-babel-evaluate nil)
         (message-log-max nil)
@@ -42,7 +42,6 @@ if it is an org-mode buffer inside of dotfiles-folder."
 (defun td/dotfiles-tangle-org-files ()
   "Tangles all of the .org files in the paths specified by the
 variable dotfiles-folder."
-  (interactive)
   (dolist (org-file dotfiles-org-files)
     (td/dotfiles-tangle-org-file org-file))
   (message "Dotfiles are up to date!"))
