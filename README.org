@@ -12,7 +12,7 @@ To set up the configuration files, simply execute the following in your terminal
 
   $ mv -v Literate-Config/* ~/.dotfiles/ && rmdir Literate-Config/
 
-  $ cd ~/.dotfiles/ && chmod +x tangle.sh
+  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.sh
 
   $ ./tangle.sh
 
