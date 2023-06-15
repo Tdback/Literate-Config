@@ -5,9 +5,9 @@
 #+ each dotfile.
 
 echo "Creating temporary directory..."
-mkdir -p ./.temp
+mkdir -p .temp/
 
-emacs -Q --script tangler.el 
+emacs -Q --script tangle_helper.el
 
 echo "Cleaning up dependencies and temporary directory..."
-rm -rf ./.temp
+rm -rf .temp/
