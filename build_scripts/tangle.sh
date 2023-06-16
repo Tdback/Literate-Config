@@ -5,7 +5,7 @@
 #   Author  : Tyler Dunneback
 #   Date    : Jun 15, 2023
 #   GitHub  : https://github.com/Tdback
-#   Version : 0.2
+#   Version : 1.0
 # 
 # ===============================================================================
 
