@@ -12,15 +12,15 @@
 # Main script for tangling out dotfiles.
 require 'fileutils'
 
-directories = [
-  File.expand_path("~/.config/"),
-  File.expand_path("~/.config/alacritty/"),
-  File.expand_path("~/.config/autostart/"),
-  File.expand_path("~/.config/bspwm/"),
-  File.expand_path("~/.config/sxhkd/"),
-  File.expand_path("~/.config/polybar/"),
-  File.expand_path("~/.config/rofi/")
-]
+directories = %w[
+  ~/.config/
+  ~/.config/alacritty/
+  ~/.config/autostart/
+  ~/.config/bspwm/
+  ~/.config/sxhkd/
+  ~/.config/polybar/
+  ~/.config/rofi/
+].map(&File.method(:expand_path))
 
 directories.each { |path|
   unless Dir.exist? path 
