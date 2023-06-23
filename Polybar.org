@@ -1,0 +1,221 @@
+#+TITLE:Polybar Config
+
+* config.ini
+:PROPERTIES:
+:header-args:conf: :tangle ~/.config/polybar/config.ini
+:END:
+
+#+begin_src conf
+
+  ;==========================================================
+  ;
+  ;
+  ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+  ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+  ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+  ;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+  ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+  ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+  ;
+  ;==========================================================
+
+#+end_src
+
+** Colors 
+
+#+begin_src conf
+
+  [colors]
+  background = #0A0E19
+  background-alt = #373B41
+  foreground = #C5C8C6
+  foreground-alt = #3F3F3F
+  focused = #4D406B
+  primary = #F0C674
+  secondary = #8ABEB7
+  alert = #A54242
+  disabled = #707880
+
+#+end_src
+
+** Main bar
+
+#+begin_src conf
+
+  [bar/main]
+  width = 100%
+  height = 22pt
+  radius = 0
+  
+  background = ${colors.background}
+  foreground = ${colors.foreground}
+  
+  line-size = 3pt
+  
+  border-size = 0pt
+  border-color = #00000000
+  
+  padding-left = 1
+  padding-right = 1
+  
+  module-margin = 1
+  
+  separator = |
+  separator-foreground = ${colors.disabled}
+  
+  font-0 = FantasqueSansMNerdFont:size=11
+  
+  modules-left = date
+  modules-center = bspwm
+  modules-right = pulseaudio eth
+  
+  cursor-click = pointer
+  
+  wm-restack = bspwm
+
+#+end_src
+
+** Modules
+
+*** Bspwm
+
+#+begin_src conf
+
+  [module/bspwm]
+  type = internal/bspwm
+  pin-workspaces = true
+  
+  label-focused = %index%
+  label-focused-foreground = ${colors.primary}
+  # label-focused-background = ${colors.focused}
+  label-focused-padding = 2
+  
+  label-occupied = %index%
+  # label-occupied-background = ${colors.background-alt}
+  label-occupied-padding = 2
+  
+  label-urgent = %index%
+  label-urgent-foreground = ${colors.foreground}
+  label-urgent-background = ${colors.background-alt}
+  label-urgent-padding = 2
+  
+  label-empty = %index%
+  label-empty-foreground = ${colors.foreground-alt}
+  label-empty-padding = 2
+
+#+end_src
+
+*** Pulseaudio
+
+#+begin_src conf
+
+  [module/pulseaudio]
+  type = internal/pulseaudio
+  
+  format-volume = <ramp-volume><label-volume>
+  format-volume-background = ${colors.background}
+  label-volume-padding-left = 0
+  label-volume = %percentage%%
+  label-volume-foreground = ${colors.primary}
+  label-volume-background = ${colors.background}
+  
+  label-muted = 󰖁 Muted
+  label-muted-background = ${colors.background}
+  label-muted-foreground = ${colors.foreground}
+  label-muted-padding = 0
+  
+  click-right = pavucontrol
+  
+  bar-volume-format = %{T8}%fill%%indicator%%empty%%{T-}
+  bar-volume-width = 10
+  
+  ; The fill, indicator and empty icon can be configured like any <label>
+  bar-volume-fill = 
+  bar-volume-empty = 
+  bar-volume-indicator = 雷
+  
+  bar-volume-fill-background = ${colors.background}
+  bar-volume-indicator-background = ${colors.background}
+  bar-volume-empty-background = ${colors.background}
+  
+  ; Only applies if <ramp-volume> is used
+  ramp-volume-0 = 
+  ramp-volume-1 = 
+  ramp-volume-2 = 
+  ramp-volume-foreground = ${colors.foreground}
+  ramp-volume-background = ${colors.background}
+  ramp-volume-padding-right = 1
+
+#+end_src
+
+*** Xwindow
+
+#+begin_src conf
+
+  [module/xwindow]
+  type = internal/xwindow
+  label = %title:0:60:...%
+
+#+end_src
+
+*** Ethernet
+
+#+begin_src conf
+
+  [network-base]
+  type = internal/network
+  interval = 5
+  format-connected = <label-connected>
+  format-disconnected = <label-disconnected>
+  label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+  [module/eth]
+  inherit = network-base
+  interface = enp42s0
+  interface-type = wired
+  label-connected = 󰈀 %{F#F0C674}%ifname%
+
+#+end_src
+
+*** Date
+
+#+begin_src conf
+
+  [module/date]
+  type = internal/date
+  interval = 1
+  
+  date = %a, %b %d 
+  # Needed to display date with alt time showing seconds
+  date-alt = %a, %b %d
+  time = %H:%M
+  time-alt = %H:%M:%S
+  
+  label =    %{F#F0C674}%date%  %{F#C5C8C6}󰅐 %{F#F0C674}%time%
+
+#+end_src
+
+** Additional Settings
+
+#+begin_src conf
+
+  [settings]
+  screenchange-reload = true
+  pseudo-transparency = true
+
+#+end_src
+
+* launch.sh
+:PROPERTIES:
+:header-args:bash: :tangle ~/.config/polybar/launch.sh :shebang "#!/usr/bin/env bash"
+:END:
+
+#+begin_src bash
+
+  killall -q polybar
+
+  while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+  polybar main -c $(dirname $0)/config.ini &
+
+#+end_src
