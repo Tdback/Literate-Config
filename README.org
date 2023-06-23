@@ -5,6 +5,7 @@ Welcome home!
 NOTE: /This repository is currently being re-written as literate configuration using org-mode and Emacs. For the original source files, look to the commit history./
 
 To set up the configuration files, simply execute the following in your terminal:
+(Ensure you have Ruby installed on your system first!)
 
 #+begin_src bash 
 
@@ -12,9 +13,9 @@ To set up the configuration files, simply execute the following in your terminal
 
   $ mv -v Literate-Config/* ~/.dotfiles/ && rmdir Literate-Config/
 
-  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.sh
+  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.rb
 
-  $ ./tangle.sh
+  $ ./tangle.rb
 
 #+end_src
 
