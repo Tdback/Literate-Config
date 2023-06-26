@@ -23,7 +23,7 @@
 
 (defcustom dotfiles-org-files '("Alacritty.org" "Autostart.org" "Bspwm.org"
                                 "Emacs.org" "Lockscreen.org" "Sxhkd.org"
-                                "Polybar.org" "Rofi.org")
+                                "Polybar.org" "Rofi.org" "Starship.org")
   "This list of org-files under the `dotfiles-folder' which contain configuration
 files that should be tangled."
   :type '(list string)
