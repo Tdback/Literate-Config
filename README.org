@@ -10,15 +10,15 @@ To set up the configuration files, simply execute the following in your terminal
 
 #+begin_src bash 
 
-  $ git clone https://github.com/Tdback/Literate-Config/
+      $ git clone https://github.com/Tdback/Literate-Config/
  
-  $ mkdir -p ~/.dotfiles/ && \
-    mv Literate-Config/* ~/.dotfiles/ && \
-    rmdir Literate-Config/
+      $ mkdir -p ~/.dotfiles/ \
+        && mv Literate-Config/* ~/.dotfiles/ \
+        && rmdir Literate-Config/
  
-  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.rb
+      $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.rb
  
-  $ ./tangle.rb
+      $ ./tangle.rb
 
 #+end_src
 
