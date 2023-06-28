@@ -22,12 +22,12 @@ directories = %w[
   ~/.config/rofi/
 ].map(&File.method(:expand_path))
 
-directories.each { |path|
+directories.each do |path|
   unless Dir.exist? path 
     puts "Directory '#{path}' not found, creating it now..."
     Dir.mkdir path
   end
-}
+end
 
 # Run tangle script.
 puts "Creating temporary directory..."
@@ -36,4 +36,4 @@ Dir.mkdir ".temp/"
 system "emacs -Q --script tangle_helper.el"
 
 puts "Cleaning up dependencies and temporary directory..."
-FileUtils.rm_rf ".temp/", :secure => true
+FileUtils.rm_rf ".temp/", secure: true
