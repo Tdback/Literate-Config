@@ -820,7 +820,7 @@
 
 #+end_src
 
-** OCaml-Merlin
+** OCaml
 
 #+begin_src emacs-lisp
 
@@ -829,15 +829,23 @@
   :defer t
   :hook (merlin-mode . tuareg-mode))
 
-  (use-package flycheck-ocaml
-      :ensure t
-      :config
-      (add-hook 'tuareg-mode-hook
-                (lambda ()
-                  ;; disable Merlin's own error checking
-                  (setq-local merlin-error-after-save nil)
-                  ;; enable Flycheck checker
-                  (flycheck-ocaml-setup))))
+(use-package flycheck-ocaml
+    :ensure t
+    :config
+    (add-hook 'tuareg-mode-hook
+              (lambda ()
+                ;; disable Merlin's own error checking
+                (setq-local merlin-error-after-save nil)
+                ;; enable Flycheck checker
+                (flycheck-ocaml-setup))))
+
+(use-package ocp-indent
+  :ensure t
+  :defer t)
+
+(use-package ocamlformat
+  :custom (ocamlformat-enable 'enable-outside-detected-project)
+  :hook (before-save . ocamlformat-before-save))
 
 #+end_src
 
