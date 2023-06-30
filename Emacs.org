@@ -739,6 +739,7 @@
   (add-to-list 'eglot-server-programs '(elixir-mode . ("language_server.sh")))
   (add-to-list 'eglot-server-programs '(erlang-mode . ("erlang_ls")))
   (add-to-list 'eglot-server-programs '(ruby-mode   . ("solargraph" "socket" "--port" :autoport)))
+  (add-to-list 'eglot-server-programs '(tuareg-mode . ("ocamllsp"))) ; OCaml mode!
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
   (add-to-list 'eglot-server-programs '(go-mode     . ("gopls")))
@@ -749,6 +750,7 @@
    (elixir-mode   . eglot-ensure)
    (erlang-mode   . eglot-ensure)
    (ruby-mode     . eglot-ensure)
+   (tuareg-mode   . eglot-ensure) 
    (c-mode        . eglot-ensure)
    (c++-mode      . eglot-ensure)))
 
@@ -815,6 +817,27 @@
   ;; Ensure that pcomplete does not write to the buffer
   ;; and behaves as a pure 'completion-at-point-function'
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify))
+
+#+end_src
+
+** OCaml-Merlin
+
+#+begin_src emacs-lisp
+
+(use-package merlin
+  :ensure t
+  :defer t
+  :hook (merlin-mode . tuareg-mode))
+
+  (use-package flycheck-ocaml
+      :ensure t
+      :config
+      (add-hook 'tuareg-mode-hook
+                (lambda ()
+                  ;; disable Merlin's own error checking
+                  (setq-local merlin-error-after-save nil)
+                  ;; enable Flycheck checker
+                  (flycheck-ocaml-setup))))
 
 #+end_src
 
