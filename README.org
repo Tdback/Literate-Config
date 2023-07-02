@@ -2,6 +2,8 @@
 
 Welcome home!
 
+This project uses a method of programming known as [[What is literate programming?][literate programming]], where the programmer combines both the documentation and code for their program into a single file with markdown-like syntax (in this case, org-mode in Emacs). This method enables me to seamlessly blend code and documentation, from which I automate the process of tangling (or extracting) the program's code into its respective configuration scripts. This approach proves quite intuitive when performing configuration changes in my system or text editor. 
+
 Here's my configuration: 
 
 In opposition to standard desktop environments such as GNOME or KDE, I instead use a minimal window manager called bspwm, which allows me to take full advantage of a keyboard-centric workflow when programming, writing, or performing other day-to-day tasks on my desktop. sxhkd, a simple X11 hotkey daemon, allows me to set custom keybindings for manipulating bspwm windows and navigating my desktop efficiently. Polybar, a fast and easy-to-use status bar, also provides an additional means of window navigation. I also make heavy use of Rofi, a window switcher and application launcher.
