@@ -47,3 +47,5 @@ Literate programming was originally conceived by Donald Knuth, in an effort to a
 [[./images/desktop-02.png]]
 
 [[./images/desktop-03.png]]
+
+[[./images/desktop-04.png]]
