@@ -4,17 +4,17 @@ Welcome home!
 
 Here's my configuration: 
 
-In opposition to standard desktop environments such as GNOME or KDE, I opt to instead use a minimal window manager called bspwm, which allows me to take full advantage of a keyboard-centric workflow when programming, writing, or performing other day-to-day tasks on my desktop. sxhkd, a simple X11 hotkey daemon, allows me to set custom keybindings for manipulating bspwm windows and navigating my desktop efficiently. Polybar, a fast and easy-to-use status bar, also provides an additional means of window navigation. I also make heavy use of Rofi, a window switcher and application launcher.
+In opposition to standard desktop environments such as GNOME or KDE, I instead use a minimal window manager called bspwm, which allows me to take full advantage of a keyboard-centric workflow when programming, writing, or performing other day-to-day tasks on my desktop. sxhkd, a simple X11 hotkey daemon, allows me to set custom keybindings for manipulating bspwm windows and navigating my desktop efficiently. Polybar, a fast and easy-to-use status bar, also provides an additional means of window navigation. I also make heavy use of Rofi, a window switcher and application launcher.
 
 I rely heavily on Emacs for my daily work, and it's safe to say that I use it for nearly everything (outside of web browsing and video games). There's a running joke that "Emacs is the best operating system!" because of its versatility and extensive features, and I couldn't agree more. I have invested a significant amount of time into refining my Emacs configuration. Phenomenal tools such as dired for file management, magit for version control, vterm for terminal emulation, and eglot for language server support all enhance my productivity as a programmer and power user. Additionally, I make use of several wonderful tools like the beloved org-mode for note-taking and writing, and jinx for spellchecking. Oftentimes, I even find myself considering Emacs as my [[https://www.orgroam.com][second brain]]. Oh, and of course I use evil-mode for vim keybindings and macros :-)
 
-Although I use Arch Linux, this configuration is completely distro-agnostic, given the specified distribution in question contains all the relevant packages. I simply opt to use Arch Linux for its package manager, pacman, and its overall simplicity and lightweight design. I am by no means suggesting you must do the same. 
+Although I use Arch Linux, this configuration is completely distro-agnostic, given the specified distribution in question contains all the relevant packages. I prefer to use Arch Linux for its package manager, pacman, and its overall simple and lightweight design. I am by no means suggesting you must do the same. 
 
 * Installation 
 
 To set up the configuration files, simply execute the following in your terminal:
 
-(Ensure you have Ruby and Emacs installed on your system first!)
+(Ensure you have both Lua and Emacs installed on your system first!)
 
 #+begin_src bash 
 
@@ -24,9 +24,9 @@ To set up the configuration files, simply execute the following in your terminal
     && mv Literate-Config/* ~/.dotfiles/ \
     && rmdir Literate-Config/
 
-  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.rb
+  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.lua
 
-  $ ./tangle.rb
+  $ ./tangle.lua
 
 #+end_src
 
