@@ -2,7 +2,7 @@
 
 Welcome home!
 
-This project uses a method of programming known as literate programming, where the programmer combines both the documentation and code for their program into a single file with markdown-like syntax (in this case, org-mode in Emacs). This method enables me to seamlessly blend code and documentation, from which I automate the process of tangling (or extracting) the program's code into its respective configuration scripts. This approach proves quite intuitive when performing configuration changes in my system or text editor. 
+This project uses a method of programming known as literate programming, where the programmer combines both the documentation and code for their program into a single file with markdown-like syntax (in this case, org-mode in Emacs). This method enables me to seamlessly blend code and documentation, from which I automate the process of tangling (or extracting) the program's code into its respective configuration scripts. This approach proves quite intuitive when performing configuration changes for my system or text editor. 
 
 Here's my configuration: 
 
