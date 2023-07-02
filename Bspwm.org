@@ -112,7 +112,7 @@ Each time bspwm is started (or restarted) this startup script is run, which acco
 #+begin_src shell
 
   sleep 0.50
-  nitrogen --set-auto "$HOME/.config/bg.png" &
+  nitrogen --set-auto "$HOME/.config/bg.jpg" &
 
 #+end_src
 
