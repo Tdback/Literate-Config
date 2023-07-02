@@ -38,10 +38,10 @@ Literate programming was originally conceived by Donald Knuth, in an effort to a
 
 * Gallery
 
-[[./images/desktop-0.png]]
+[[./images/desktop-00.png]]
 
-[[./images/desktop-1.png]]
+[[./images/desktop-01.png]]
 
-[[./images/desktop-2.png]]
+[[./images/desktop-02.png]]
 
-[[./images/desktop-3.png]]
+[[./images/desktop-03.png]]
