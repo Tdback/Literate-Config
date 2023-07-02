@@ -736,10 +736,9 @@
   :config
   (add-to-list 'eglot-server-programs '(c-mode      . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode    . ("clangd")))
-  (add-to-list 'eglot-server-programs '(elixir-mode . ("language_server.sh")))
-  (add-to-list 'eglot-server-programs '(erlang-mode . ("erlang_ls")))
   (add-to-list 'eglot-server-programs '(ruby-mode   . ("solargraph" "socket" "--port" :autoport)))
   (add-to-list 'eglot-server-programs '(tuareg-mode . ("ocamllsp"))) ; OCaml mode!
+  (add-to-list 'eglot-server-programs '(lua-mode    . ("lua-language-server"))) 
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
   (add-to-list 'eglot-server-programs '(go-mode     . ("gopls")))
@@ -747,10 +746,9 @@
   ((python-mode   . eglot-ensure)
    (rust-mode     . eglot-ensure)
    (go-mode       . eglot-ensure)
-   (elixir-mode   . eglot-ensure)
-   (erlang-mode   . eglot-ensure)
    (ruby-mode     . eglot-ensure)
    (tuareg-mode   . eglot-ensure) 
+   (lua-mode      . eglot-ensure)
    (c-mode        . eglot-ensure)
    (c++-mode      . eglot-ensure)))
 
@@ -864,45 +862,21 @@
 
 #+end_src
 
-** Geiser
-
-#+begin_src emacs-lisp
-
-;; To use guile scheme (or any scheme really)
-(use-package geiser-guile
-  :ensure t 
-  :commands (geiser))
-
-#+end_src
-
-** Elixir
-
-#+begin_src emacs-lisp
-
-(use-package elixir-mode
-  :ensure t :defer t :mode "\\.exs\\'")
-
-#+end_src
-
-** Erlang
-
-#+begin_src emacs-lisp
-
-(use-package erlang
-  :ensure t
-  :defer t
-  :mode (("\\.erl\\'"     . erlang-mode)
-         ("\\.hrl\\'"     . erlang-mode)
-         ("\\.escript\\'" . erlang-mode)))
-
-#+end_src
-
 ** Ruby
 
 #+begin_src emacs-lisp
 
 (use-package ruby-mode
   :ensure t :defer t :mode "\\.rb\\'")
+
+#+end_src
+
+** Lua
+
+#+begin_src emacs-lisp
+
+(use-package lua-mode
+  :ensure t :defer t :mode "\\.lua\\'")
 
 #+end_src
 
