@@ -12,6 +12,8 @@ I rely heavily on Emacs for my daily work, and it's safe to say that I use it fo
 
 Although I use Arch Linux, this configuration is completely distro-agnostic, given the specified distribution in question contains all the relevant packages. I prefer to use Arch Linux for its package manager, pacman, and its overall simple and lightweight design. I am by no means suggesting you must do the same. 
 
+NOTE: /Some of these files are still being documented. As a result, documentation throughout may be incomplete or lack clarity./
+
 * Installation 
 
 To set up the configuration files, simply execute the following in your terminal:
@@ -32,7 +34,17 @@ To set up the configuration files, simply execute the following in your terminal
 
 #+end_src
 
-NOTE: /Some of these files are still being documented. As a result, documentation throughout may be incomplete or lack clarity./
+If not already installed, consult your package manager for installation instructions to install the programs used in my configuration:
+
+(In my case, I'll be using pacman and installing [[https://starship.rs/guide/#%F0%9F%9A%80-installation][starship.rs]] using their Linux install script)
+
+#+begin_src bash
+
+  $ sudo pacman -S bspwm sxhkd rofi polybar betterlockscreen alacritty
+
+  $ curl -sS https://starship.rs/install.sh | sh
+
+#+end_src
 
 * What is literate programming?
 
