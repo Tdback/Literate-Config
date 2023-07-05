@@ -16,9 +16,41 @@ NOTE: /Some of these files are still being documented. As a result, documentatio
 
 * Installation 
 
-To set up the configuration files, simply execute the following in your terminal:
+There are a few installation dependencies before we get started, namely Lua (luarocks), Emacs, wget, and unzip.
 
-(Ensure you have both Lua and Emacs installed on your system first!)
+Arch Linux: 
+
+#+begin_src bash 
+
+  $ sudo pacman -S lua luarocks emacs wget unzip
+
+  $ sudo luarocks install luafilesystem
+
+#+end_src
+
+Debian: 
+
+#+begin_src bash 
+
+  $ sudo apt install lua5.4 luarocks emacs wget unzip
+
+  $ sudo luarocks install luafilesystem
+
+#+end_src
+
+This configuration uses the font FantasqueSansM Nerd Font, my font of choice. To install it, simply run the following:
+
+#+begin_src bash 
+
+  $ mkdir -p ~/.fonts/
+
+  $ wget -O ~/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
+
+  $ unzip ~/.fonts/font.zip && rm ~/.fonts/font.zip
+
+#+end_src
+
+Then, to setup the configuration files, simply execute the following in your terminal:
 
 #+begin_src bash 
 
