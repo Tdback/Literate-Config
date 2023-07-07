@@ -22,9 +22,9 @@ luarocks install luafilesystem
 mkdir -p /home/$username/.fonts/
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip"
-unzip font.zip -d /home/$username/.fonts/
-unzip font_two.zip -d /home/$username/.fonts/
-rm font*.zip
+unzip FantasqueSansMono.zip -d /home/$username/.fonts/
+unzip JetBrainsMono.zip -d /home/$username/.fonts/
+rm *.zip
 chown $username:$username /home/$username/.fonts/*
 
 # Run the tangle script once after installation
