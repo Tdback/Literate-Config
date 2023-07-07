@@ -21,9 +21,11 @@ luarocks install luafilesystem
 # Install FantasqueSansM Nerd Font
 mkdir -p /home/$username/.fonts/
 wget -O /home/$username/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
+wget -O /home/$username/.fonts/font_two.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip"
 cd /home/$username/.fonts/
 unzip font.zip
-rm font.zip
+unzip font_two.zip
+rm font*.zip
 
 # Run the tangle script once after installation
 cd /home/$username/.dotfiles/build_scripts/
