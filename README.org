@@ -10,63 +10,25 @@ In opposition to standard desktop environments such as GNOME or KDE, I instead u
 
 I rely heavily on Emacs for my daily work, and it's safe to say that I use it for nearly everything (outside of web browsing and video games). There's a running joke that "Emacs is the best operating system!" because of its versatility and extensive features, and I couldn't agree more. I have invested a significant amount of time into refining my Emacs configuration. Phenomenal tools such as dired for file management, magit for version control, vterm for terminal emulation, and eglot for language server support all enhance my productivity as a programmer and power user. Additionally, I make use of several wonderful tools like the beloved org-mode for note-taking and writing, and jinx for spellchecking. Oftentimes, I even find myself considering Emacs as my [[https://www.orgroam.com][second brain]]. Oh, and of course I use evil-mode for vim keybindings and macros :-)
 
-Although I use Arch Linux, this configuration is completely distro-agnostic, and should also work on Debian without question. Since I have newer hardware and dabble in a bit of gaming in my free time, I prefer Arch's "bleeding edge" rolling release in contrast to the stable or even testing release of Debian. I am by no means suggesting you must do the same. 
+Although I use Arch Linux, this configuration is completely distro-agnostic, and should also work on Debian without question. Since I have newer hardware and dabble in a bit of gaming in my free time, I prefer Arch's "bleeding edge" rolling release in contrast to the stable or even testing release of Debian. I am by no means suggesting you must use the same distribution. 
 
 NOTE: /Some of these files are still being documented. As a result, documentation throughout may be incomplete or lack clarity./
 
 * Installation 
 
-There are a few installation dependencies before we get started, namely Lua (luarocks), Emacs, wget, and unzip.
-
-Arch Linux: 
+To automatically install the necessary programs and setup the configuration files, run the following in your terminal:
 
 #+begin_src bash 
 
-  $ sudo pacman -S lua luarocks emacs wget unzip
+  $ git clone https://github.com/Tdback/Literate-Config/ \
+    && cd Literate-Config/ \
+    && chmod +x install.sh
 
-  $ sudo luarocks install luafilesystem
-
-#+end_src
-
-Debian: 
-
-#+begin_src bash 
-
-  $ sudo apt install lua5.4 luarocks emacs wget unzip
-
-  $ sudo luarocks install luafilesystem
+  $ ./install.sh
 
 #+end_src
 
-This configuration uses the font FantasqueSansM Nerd Font, my font of choice. To install it, simply run the following:
-
-#+begin_src bash 
-
-  $ mkdir -p ~/.fonts/
-
-  $ wget -O ~/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
-
-  $ unzip ~/.fonts/font.zip && rm ~/.fonts/font.zip
-
-#+end_src
-
-Then, to setup the configuration files, simply execute the following in your terminal:
-
-#+begin_src bash 
-
-  $ git clone https://github.com/Tdback/Literate-Config/
-
-  $ mkdir -p ~/.dotfiles/ \
-    && mv Literate-Config/* ~/.dotfiles/ \
-    && rm -rf Literate-Config/
-
-  $ cd ~/.dotfiles/build_scripts/ && chmod +x tangle.lua
-
-  $ ./tangle.lua
-
-#+end_src
-
-If not already installed, consult your package manager's (pacman / apt / ...) package repositories or sites like GitHub for installation instructions on how to install the programs used in my configuration.
+If not already installed, consult your package manager's (pacman / apt / ...) package repositories or sites like GitHub for installation instructions on how to install any additional programs used in my configuration.
 
 * What is literate programming?
 
