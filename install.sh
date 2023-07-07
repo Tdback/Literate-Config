@@ -32,7 +32,7 @@ cd /home/$username/.dotfiles/build_scripts/
 chmod +x tangle.lua
 su $username -c "./tangle.lua"
 
-# Cleanup unecessary images/ directory
+# Cleanup unnecessary images/ directory
 cd /home/$username/.dotfiles/
 rm -rf images/
 
