@@ -10,6 +10,8 @@
 -- Main script for tangling out dotfiles.
 local lfs = require("lfs")
 
+local username = os.execute("id -u -n 1000")
+
 local directories = {
    ".config/",
    ".config/alacritty/",
@@ -21,7 +23,7 @@ local directories = {
 }
 
 for _, path in ipairs(directories) do
-   local p = os.getenv("HOME") .. "/" .. path
+   local p = "/home/" .. username .. "/" .. path
    if not lfs.attributes(p, "mode") then
       print("Directory '" .. p .. "' not found, creating it now...")
       lfs.mkdir(p)
