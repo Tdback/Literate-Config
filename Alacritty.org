@@ -59,7 +59,7 @@ Alacritty is a Rust-powered GPU enhanced terminal emulator. When I'm not using =
     bold_italic:
       family: FantasqueSansMNerdFont
       style: Bold Italic
-    size: 12.0
+    size: 13.0
   draw_bold_text_with_bright_colors: true
 
 #+end_src
