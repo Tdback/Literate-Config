@@ -25,6 +25,7 @@ wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrains
 unzip font.zip -d /home/$username/.fonts/
 unzip font_two.zip -d /home/$username/.fonts/
 rm font*.zip
+chown $username:$username /home/$username/.fonts/*
 
 # Run the tangle script once after installation
 cd /home/$username/.dotfiles/build_scripts/
