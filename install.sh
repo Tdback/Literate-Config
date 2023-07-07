@@ -6,6 +6,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+$username=$(id -u -n 1000)
+
 # Install dependencies and programs used in configuration based on distro
 if [[ $(uname -a) = *arch* ]]; then
   pacman -S lua luarocks emacs wget unzip bspwm sxhkd rofi polybar alacritty
@@ -17,17 +19,17 @@ fi
 luarocks install luafilesystem
 
 # Install FantasqueSansM Nerd Font
-mkdir -p ~/.fonts/
-wget -O ~/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
-unzip ~/.fonts/font.zip
-rm ~/.fonts/font.zip
+mkdir -p /home/$username/.fonts/
+wget -O /home/$username/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FantasqueSansMono.zip"
+unzip /home/$username/.fonts/font.zip
+rm /home/$username/.fonts/font.zip
 
 # Run the tangle script once after installation
-cd ~/.dotfiles/build_scripts/
+cd /home/$username/.dotfiles/build_scripts/
 chmod +x tangle.lua
 ./tangle.lua
 
 printf '%.s-' {1..80}
-echo "NOTE: Some packages must be installed manually:"
-echo "\tbetterlockscreen"
-echo "\tstarship"
+echo -e "\nNOTE: Some packages must be installed manually:"
+echo -e "\tbetterlockscreen"
+echo -e "\tstarship"
