@@ -74,6 +74,7 @@
 
 (use-package server
   :ensure nil
+  :defer 1
   :config
   (unless (server-running-p)
     (server-start)))
@@ -91,6 +92,18 @@
 
   (setq auto-save-list-file-prefix (expand-file-name "tmp/auto-saves/sessions/" user-emacs-directory)
         auto-save-file-name-transforms `((".*" ,(expand-file-name "tmp/auto-saves/" user-emacs-directory) t)))
+
+#+end_src
+
+* Login
+
+#+begin_src emacs-lisp
+
+  (defvar td/my-system
+    (if (string-equal user-login-name "td")
+        t
+      nil)
+    "Non-nil value if it's my system.")
 
 #+end_src
 
@@ -253,12 +266,24 @@
 
 ** Color Theme
 
-- Themes I like: doom-ayu-dark, nord, homage-black, vibrant, horizon, Iosvkem, doom-molokai
-
 #+begin_src emacs-lisp
 
-(use-package doom-themes
-  :init (load-theme 'doom-ayu-dark t))
+  (use-package spaceway-theme
+    :ensure nil
+    :load-path "lisp/spaceway/"
+    :config
+    (when td/my-system
+      (add-to-list 'default-frame-alist '(background-color . "black")))
+    (load-theme 'spaceway t)
+    (setenv "SCHEME" "dark"))
+
+  (use-package doom-themes
+    :disabled t
+    :ensure t
+    :config
+    (load-theme 'doom-earl-grey t)
+    (set-face-attribute 'default nil :foreground "#333")
+    (setenv "SCHEME" "light"))
 
 #+end_src
 
@@ -402,9 +427,9 @@
                           '(("^ *\\([-]\\) "
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-  (dolist (face '((org-level-1 . 1.15)
-                  (org-level-2 . 1.10)
-                  (org-level-3 . 1.05)
+  (dolist (face '((org-level-1 . 1.05)
+                  (org-level-2 . 1.02)
+                  (org-level-3 . 1.0)
                   (org-level-4 . 1.0)
                   (org-level-5 . 1.0)
                   (org-level-6 . 1.0)
@@ -925,9 +950,12 @@
 
 #+end_src
 
-** Spell-checking
+** Writing
 
 #+begin_src emacs-lisp
+
+(use-package writegood-mode
+  :hook (jinx-mode . writegood-mode))
 
 (use-package jinx
   :ensure t
