@@ -21,10 +21,13 @@ To automatically install the necessary programs and setup the configuration file
 #+begin_src bash 
 
   $ git clone https://github.com/Tdback/Literate-Config/ \
+    && mkdir -p ~/.dotfiles/ \
+    && mv Literate-Config/* ~/.dotfiles/ \
+    && rm -rf Literate-Config/ \
     && cd Literate-Config/ \
     && chmod +x install.sh
 
-  $ ./install.sh
+  $ sudo ./install.sh
 
 #+end_src
 

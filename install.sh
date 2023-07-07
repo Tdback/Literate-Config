@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Check if Script is Run as Root
 if [[ $EUID -ne 0 ]]; then
@@ -13,10 +13,6 @@ else
   apt install lua5.4 luarocks emacs wget unzip bspwm sxhkd rofi polybar alacritty 
 fi
 
-#  Some packages need to be installed manually or through the Arch AUR:
-#+ betterlockscreen
-#+ starship.rs
-
 # Install lua dependency for tangle script
 luarocks install luafilesystem
 
@@ -26,12 +22,12 @@ wget -O ~/.fonts/font.zip "https://github.com/ryanoasis/nerd-fonts/releases/down
 unzip ~/.fonts/font.zip
 rm ~/.fonts/font.zip
 
-# Create dotfiles directory and set up config files for tangling
-mkdir -p ~/.dotfiles/ 
-mv Literate-Config/* ~/.dotfiles/ 
-rm -rf Literate-Config/
-
 # Run the tangle script once after installation
 cd ~/.dotfiles/build_scripts/
 chmod +x tangle.lua
 ./tangle.lua
+
+printf '%.s-' {1..80}
+echo "NOTE: Some packages must be installed manually:"
+echo "\tbetterlockscreen"
+echo "\tstarship"
