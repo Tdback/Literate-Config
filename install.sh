@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-$username=$(id -u -n 1000)
+username=$(id -u -n 1000)
 
 # Install dependencies and programs used in configuration based on distro
 if [[ $(uname -a) = *arch* ]]; then
