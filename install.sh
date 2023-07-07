@@ -32,6 +32,10 @@ cd /home/$username/.dotfiles/build_scripts/
 chmod +x tangle.lua
 su $username -c "./tangle.lua"
 
+# Cleanup unecessary images/ directory
+cd /home/$username/.dotfiles/
+rm -rf images/
+
 printf '%.s-' {1..80}
 echo -e "\nNOTE: Some packages must be installed manually:"
 echo -e "\tbetterlockscreen"
