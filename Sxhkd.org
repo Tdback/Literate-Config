@@ -45,15 +45,6 @@
 
 #+end_src
 
-*** GUI File Manager
-
-#+begin_src bash
-
-  super + n
-          thunar
-
-#+end_src
-
 *** Browser
 
 #+begin_src bash
