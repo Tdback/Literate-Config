@@ -32,7 +32,7 @@
 #+begin_src conf
 
   * {
-    bg: #0A0E19;
+    bg: #191919;
     bg-alt: #363636;
   
     fg: #FFFFFF;

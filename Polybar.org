@@ -26,12 +26,11 @@
 #+begin_src conf
 
   [colors]
-  background = #0A0E19
+  background = #191919
   background-alt = #373B41
   foreground = #C5C8C6
-  foreground-alt = #3F3F3F
   focused = #4D406B
-  primary = #F0C674
+  primary = #E04845
   secondary = #8ABEB7
   alert = #A54242
   disabled = #707880
@@ -44,7 +43,7 @@
 
   [bar/main]
   width = 100%
-  height = 22pt
+  height = 18pt
   radius = 0
   
   background = ${colors.background}
@@ -63,11 +62,10 @@
   separator = |
   separator-foreground = ${colors.disabled}
   
-  font-0 = FantasqueSansMNerdFont:size=11
+  font-0 = FantasqueSansMNerdFont:size=10
   
-  modules-left = date
-  modules-center = bspwm
-  modules-right = pulseaudio eth
+  modules-left = bspwm
+  modules-right = pulseaudio date 
   
   cursor-click = pointer
   
@@ -87,21 +85,18 @@
   
   label-focused = %index%
   label-focused-foreground = ${colors.primary}
-  # label-focused-background = ${colors.focused}
-  label-focused-padding = 2
+  label-focused-padding = 1
   
   label-occupied = %index%
-  # label-occupied-background = ${colors.background-alt}
-  label-occupied-padding = 2
+  label-occupied-padding = 1
   
   label-urgent = %index%
   label-urgent-foreground = ${colors.foreground}
   label-urgent-background = ${colors.background-alt}
-  label-urgent-padding = 2
-  
+  label-urgent-padding = 1
+
   label-empty = %index%
-  label-empty-foreground = ${colors.foreground-alt}
-  label-empty-padding = 2
+  label-empty-padding = 1
 
 #+end_src
 
@@ -112,14 +107,14 @@
   [module/pulseaudio]
   type = internal/pulseaudio
   
-  format-volume = <ramp-volume><label-volume>
+  format-volume = <bar-volume><label-volume>
   format-volume-background = ${colors.background}
-  label-volume-padding-left = 0
+  label-volume-padding-left = 2
   label-volume = %percentage%%
-  label-volume-foreground = ${colors.primary}
+  label-volume-foreground = ${colors.foreground}
   label-volume-background = ${colors.background}
   
-  label-muted = 󰖁 Muted
+  label-muted =   0%
   label-muted-background = ${colors.background}
   label-muted-foreground = ${colors.foreground}
   label-muted-padding = 0
@@ -134,46 +129,11 @@
   bar-volume-empty = 
   bar-volume-indicator = 雷
   
+  bar-volume-fill-foreground = ${colors.primary}
   bar-volume-fill-background = ${colors.background}
+  bar-volume-indicator-foreground = ${colors.primary}
   bar-volume-indicator-background = ${colors.background}
   bar-volume-empty-background = ${colors.background}
-  
-  ; Only applies if <ramp-volume> is used
-  ramp-volume-0 = 
-  ramp-volume-1 = 
-  ramp-volume-2 = 
-  ramp-volume-foreground = ${colors.foreground}
-  ramp-volume-background = ${colors.background}
-  ramp-volume-padding-right = 1
-
-#+end_src
-
-*** Xwindow
-
-#+begin_src conf
-
-  [module/xwindow]
-  type = internal/xwindow
-  label = %title:0:60:...%
-
-#+end_src
-
-*** Ethernet
-
-#+begin_src conf
-
-  [network-base]
-  type = internal/network
-  interval = 5
-  format-connected = <label-connected>
-  format-disconnected = <label-disconnected>
-  label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
-
-  [module/eth]
-  inherit = network-base
-  interface = enp42s0
-  interface-type = wired
-  label-connected = 󰈀 %{F#F0C674}%ifname%
 
 #+end_src
 
@@ -191,7 +151,7 @@
   time = %H:%M
   time-alt = %H:%M:%S
   
-  label =    %{F#F0C674}%date%  %{F#C5C8C6}󰅐 %{F#F0C674}%time%
+  label = %date% %time%
 
 #+end_src
 
