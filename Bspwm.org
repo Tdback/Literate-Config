@@ -69,13 +69,13 @@ Each time bspwm is started (or restarted) this startup script is run, which acco
 *** Setting window size and padding
 #+begin_src shell
 
-  bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+  bspc monitor -d 1 2 3 4 5 6 7 8 9
   bspc config window_gap             8
   bspc config border_width           2
-  bspc config top_padding            6
-  bspc config right_padding          6
-  bspc config left_padding           6
-  bspc config bottom_padding         6
+  bspc config top_padding            4
+  bspc config right_padding          4
+  bspc config left_padding           4
+  bspc config bottom_padding         4
   bspc config top_monocle_padding    0
   bspc config left_monocle_padding   0
   bspc config right_monocle_padding  0
@@ -101,7 +101,6 @@ Each time bspwm is started (or restarted) this startup script is run, which acco
 
 #+begin_src shell
 
-  bspc rule -a Steam desktop="^10"
   bspc rule -a Emacs state=tiled
   bspc rule -a Zathura state=tiled
 
