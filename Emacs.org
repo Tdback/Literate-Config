@@ -936,6 +936,7 @@
 
 #+begin_src emacs-lisp
 
+(setenv "GOPATH" "/home/td/.go/")
 (use-package go-mode
   :ensure t :defer t :mode "\\.go\\'")
 
