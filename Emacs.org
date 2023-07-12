@@ -560,6 +560,10 @@
             ("tt" "New Task" entry (file+olp "~/OrgFiles/Tasks.org" "Tasks")
              "* TODO %?\n %U\n %a\n %i" :empty-lines 1)
 
+            ("i" "Idea / Thought")
+            ("ii" "New Idea" entry (file+olp "~/OrgFiles/Ideas.org" "Ideas")
+             "* %^{Idea}\n %U\n %?\n %i" :empty-lines 1)
+
             ("j" "Journal Entries")
             ("jj" "Journal" entry
              (file+olp+datetree "~/OrgFiles/Journal.org")
