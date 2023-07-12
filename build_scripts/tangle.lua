@@ -9,7 +9,7 @@
 
 local function help()
    local help_msg = [[
-Usage: ./tangle.lua [OPTION]...
+Usage: ./tangle.lua [OPTION]
 Tangle out literate configuration files to respective config files.
 
 With no OPTION, script creates temporary directory to use as future
