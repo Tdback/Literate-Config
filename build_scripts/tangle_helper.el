@@ -2,7 +2,8 @@
 
 ;; Set the package installation directory so that packages aren't stored in the
 ;; ~/.emacs.d/elpa path
-(message "Installing org-mode dependencies...")
+(if (not (file-directory-p "./.temp"))
+    (message "Installing org-mode dependencies..."))
 (require 'package)
 (setq package-user-dir (expand-file-name "./.temp"))
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
