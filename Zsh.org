@@ -36,6 +36,7 @@
   # Colored GCC warnings and errors
   export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+  # Don't need this when using autocomplete plugin.
   # zstyle :compinstall filename '/home/td/.zshrc'
   # autoload -Uz compinit
   # compinit
@@ -47,6 +48,8 @@
 
   # Autosuggestions
   [ -d ~/.config/zsh/zsh-autocomplete ] && . ~/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+  # Autosuggestions tab cycle
   bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
   bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
@@ -156,6 +159,26 @@
 
   # List total number of pacman packages installed on the system
   pkgs () { pacman -Q | wc -l | xargs -I{} echo "Packages installed: {}" ;} 
+
+  # Create a new Go project
+  ngo () {
+    mkdir -p $1 && cd $1
+    cp ~/Documents/LICENSE . 
+    go mod init $1 
+
+    cat >./$2.go << EOL
+  package main
+
+  import "fmt"
+
+  func main() {
+          fmt.Println("Don't Panic")
+  }
+
+  EOL
+
+    go run .
+  }
 
 #+end_src
 
