@@ -44,8 +44,8 @@ git clone https://github.com/zsh-users/zsh-history-substring-search
 cd /home/$username/.dotfiles/
 rm -rf images/
 
-# Change shell to zsh
-chsh -s $(which zsh)
+# Change user's shell to zsh
+chsh -s $(which zsh) $username
 
 printf '%.s-' {1..80}
 echo -e "\nNOTE: Some packages must be installed manually:"
