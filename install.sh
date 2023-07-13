@@ -36,7 +36,7 @@ su $username -c "./tangle.lua"
 # Install zsh extensions
 mkdir -p /home/$username/.config/zsh/
 cd /home/$username/.config/zsh/
-git clone https://github.com/zsh-users/zsh-autosuggestions
+git clone https://github.com/marlonrichert/zsh-autocomplete
 git clone https://github.com/zsh-users/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search
 
