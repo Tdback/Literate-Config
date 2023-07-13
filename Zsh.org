@@ -18,7 +18,7 @@
   setopt autocd
 
   # emacs mode
-  set -o emacs
+  bindkey -e
 
   # enable noclobber to prevent overwriting existing files with redirection
   set -o noclobber
@@ -68,6 +68,9 @@
 
   # asdf tool for managing different versions of Lua-Language-Server, etc.
   . /opt/asdf-vm/asdf.sh
+
+  # opam configuration
+  [[ ! -r /home/td/.opam/opam-init/init.zsh ]] || source /home/td/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
   # Welcome message
   echo "( .-.)"
