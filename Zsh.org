@@ -9,14 +9,16 @@
 
   export LESSHISTFILE="-"
   HISTCONTROL=ignoreboth
+  HISTFILE=~/.zsh_history
   HISTSIZE=10000
   SAVEHIST=10000
+  setopt appendhistory
 
   # enable cd with just pathnames
   setopt autocd
 
-  # evil mode
-  bindkey -v
+  # emacs mode
+  set -o emacs
 
   # enable noclobber to prevent overwriting existing files with redirection
   set -o noclobber
@@ -34,9 +36,9 @@
   # Colored GCC warnings and errors
   export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-  zstyle :compinstall filename '/home/td/.zshrc'
-  autoload -Uz compinit
-  compinit
+  # zstyle :compinstall filename '/home/td/.zshrc'
+  # autoload -Uz compinit
+  # compinit
 
   #  Source plugins ( using . )
 
@@ -44,8 +46,9 @@
   [ -d ~/.config/zsh/zsh-syntax-highlighting ] && . ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
   # Autosuggestions
-  [ -d ~/.config/zsh/zsh-autosuggestions ] && . ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+  [ -d ~/.config/zsh/zsh-autocomplete ] && . ~/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+  bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
   # history substring
   [ -d ~/.config/zsh/zsh-history-substring-search ] && . ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -53,8 +56,6 @@
   # history substring search options
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
-  bindkey '^F'   autosuggest-accept
-  bindkey 'M-f'  forward-word
 
   # Source aliases file
   [ -f ~/.zsh_aliases ] && . ~/.zsh_aliases
