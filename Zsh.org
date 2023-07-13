@@ -1,0 +1,169 @@
+#+TITLE:Zsh Config
+
+* zshrc
+:PROPERTIES:
+:header-args:shell: :tangle ~/.zshrc
+:END:
+
+#+begin_src shell
+
+  export LESSHISTFILE="-"
+  HISTCONTROL=ignoreboth
+  HISTSIZE=10000
+  SAVEHIST=10000
+
+  # enable cd with just pathnames
+  setopt autocd
+
+  # evil mode
+  bindkey -v
+
+  # enable noclobber to prevent overwriting existing files with redirection
+  set -o noclobber
+
+  # Enable color support of las and also add handy aliases
+  if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+  fi
+
+  # Colored GCC warnings and errors
+  export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+  zstyle :compinstall filename '/home/td/.zshrc'
+  autoload -Uz compinit
+  compinit
+
+  #  Source plugins ( using . )
+
+  #  Syntax highlighting 
+  [ -d ~/.config/zsh/zsh-syntax-highlighting ] && . ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  # Autosuggestions
+  [ -d ~/.config/zsh/zsh-autosuggestions ] && . ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+  # history substring
+  [ -d ~/.config/zsh/zsh-history-substring-search ] && . ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+  # history substring search options
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+  bindkey '^F'   autosuggest-accept
+  bindkey 'M-f'  forward-word
+
+  # Source aliases file
+  [ -f ~/.zsh_aliases ] && . ~/.zsh_aliases
+
+  # Source functions file
+  [ -f ~/.zsh_functions ] && . ~/.zsh_functions
+
+  # Enable starship prompt
+  eval "$(starship init zsh)"
+
+  # asdf tool for managing different versions of Lua-Language-Server, etc.
+  . /opt/asdf-vm/asdf.sh
+
+#+end_src
+
+* zsh_aliases
+:PROPERTIES:
+:header-args:shell: :tangle ~/.zsh_aliases
+:END:
+
+#+begin_src shell
+
+  alias cp='cp -iv'
+  alias rm='rm -Idv'
+  alias mv='mv -iv'
+  alias mkdir='mkdir -v'
+  alias rmdir='rmdir -v'
+
+  alias ll='ls -alF'
+  alias l1='ls -1F'
+  alias la='ls -AF'
+  alias l='ls -CF'
+
+  alias bd='cd "$OLDPWD"'
+
+  alias pwd='pwd -P'
+
+  alias zip='zip -9v'
+  alias gzip='gzip -9v'
+  alias bzip2='bzip2 -9v'
+  alias xz='xz -v'
+
+  alias python='/usr/bin/python3'
+  alias ipy='$HOME/.local/bin/ipython'
+
+  alias v='/usr/bin/nvim'
+  alias vi='/usr/bin/nvim'
+  alias vim='/usr/bin/nvim'
+
+#+end_src
+
+* zsh_functions
+:PROPERTIES:
+:header-args:shell: :tangle ~/.zsh_functions
+:END:
+
+#+begin_src shell
+
+  #  A command line awk calculator for simple arithmetic operations. Don't forget 
+  #+ to wrap quotes around the arguments.
+  awc () { awk "BEGIN { print $* }" ;}
+
+  # Create and go to directory
+  mkdirg () { mkdir -p "$1"; cd "$1" ;}
+
+  # Copy and go to directory
+  cpg () {
+    if [ -d "$2" ]; then
+      cp "$1" "$2" && cd "$2"
+    else
+      cp "$1" "$2"
+    fi
+  }
+
+  # Move and go to directory
+  mvg () {
+    if [ -d "$2" ]; then
+      mv "$1" "$2" && cd "$2"
+    else
+      mv "$1" "$2"
+    fi
+  }
+
+  #  Search for text in all files in current directory using the following:
+  #+ -i: case-insensitive
+  #+ -I: ignore binary files
+  #+ -H: display file name
+  #+ -n: display line numbers
+  #+ -r: recursive search
+  #+ -P: PCRE regex (optional, use -E for egrep-like queries)
+  ftext () { grep -iIHnrP "$1" | less ;}
+
+  # List total number of pacman packages installed on the system
+  pkgs () { pacman -Q | wc -l | xargs -I{} echo "Packages installed: {}" ;} 
+
+#+end_src
+
+* zshenv
+:PROPERTIES:
+:header-args:shell: :tangle ~/.zshenv
+:END:
+
+#+begin_src shell
+
+  export PATH=$PATH:$HOME/.local/bin
+  export PATH=$PATH:$HOME/.cargo/bin
+  export PATH=$PATH:$HOME/.go
+  export PATH=$PATH:/usr/local/go/bin
+  export PATH=$PATH:$HOME/.asdf/shims
+  typeset -U PATH
+
+#+end_src
