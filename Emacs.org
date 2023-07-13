@@ -175,13 +175,13 @@
   (defun td/set-font-faces ()
     (message "Setting font faces!")
     ;; Set font
-    (set-face-attribute 'default nil :font "FantasqueSansMNerdFont" :height 190)
+    (set-face-attribute 'default nil :font "FantasqueSansMNerdFont" :height 210)
 
     ;; Set fixed pitch face
-    (set-face-attribute 'fixed-pitch nil :font "FantasqueSansMNerdFont" :height 190)
+    (set-face-attribute 'fixed-pitch nil :font "FantasqueSansMNerdFont" :height 210)
 
     ;; Set the variable pitch face
-    (set-face-attribute 'variable-pitch nil :font "FantasqueSansMNerdFont" :height 190))
+    (set-face-attribute 'variable-pitch nil :font "FantasqueSansMNerdFont" :height 210))
 
 
   ;; Fix fonts when running emacsclient (in daemon)
