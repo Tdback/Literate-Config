@@ -174,10 +174,17 @@
   func main() {
           fmt.Println("Don't Panic")
   }
-
   EOL
 
     go run .
+  }
+
+  # Look at the current weather
+  weather () {
+    default="kalamazoo"
+    city="${$(echo "$1" | sed 's/ /+/g'):-$default}"
+
+    curl -s "https://wttr.in/$city" | head -n -2
   }
 
 #+end_src
