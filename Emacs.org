@@ -787,7 +787,6 @@
   :config
   (add-to-list 'eglot-server-programs '(c-mode      . ("clangd")))
   (add-to-list 'eglot-server-programs '(c++-mode    . ("clangd")))
-  (add-to-list 'eglot-server-programs '(tuareg-mode . ("ocamllsp"))) ; OCaml mode!
   (add-to-list 'eglot-server-programs '(lua-mode    . ("lua-language-server"))) 
   (add-to-list 'eglot-server-programs '(rust-mode   . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyls")))
@@ -796,7 +795,6 @@
   ((python-mode   . eglot-ensure)
    (rust-mode     . eglot-ensure)
    (go-mode       . eglot-ensure)
-   (tuareg-mode   . eglot-ensure) 
    (lua-mode      . eglot-ensure)
    (c-mode        . eglot-ensure)
    (c++-mode      . eglot-ensure)))
@@ -867,41 +865,9 @@
 
 #+end_src
 
-** OCaml
-
-#+begin_src emacs-lisp
-
-(use-package merlin
-  :ensure t
-  :defer t
-  :hook (merlin-mode . tuareg-mode))
-
-(use-package flycheck-ocaml
-    :ensure t
-    :config
-    (add-hook 'tuareg-mode-hook
-              (lambda ()
-                ;; disable Merlin's own error checking
-                (setq-local merlin-error-after-save nil)
-                ;; enable Flycheck checker
-                (flycheck-ocaml-setup))))
-
-(use-package ocp-indent
-  :ensure t
-  :defer t)
-
-(use-package ocamlformat
-  :custom (ocamlformat-enable 'enable-outside-detected-project)
-  :hook (before-save . ocamlformat-before-save))
-
-#+end_src
-
 ** Lisp 
 
-*** Sly
-
-- Common Lisp REPL
-- Run using =M-x= =sly=
+*** Sly (Common Lisp)
 
 #+begin_src emacs-lisp
 
@@ -963,7 +929,7 @@
 
 #+end_src
 
-** yaml
+** Yaml
 
 #+begin_src emacs-lisp
 
@@ -972,7 +938,7 @@
 
 #+end_src
 
-** bash
+** Bash
 
 #+begin_src emacs-lisp
 
