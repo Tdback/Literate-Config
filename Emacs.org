@@ -5,23 +5,23 @@
 
 #+begin_src emacs-lisp
 
-;; The default is 800 kilobytes. Measured in bytes
-(setq gc-cons-threshold (* 50 1000 1000))
+  ;; The default is 800 kilobytes. Measured in bytes
+  (setq gc-cons-threshold (* 50 1000 1000))
 
-(defun td/display-startup-time ()
-  (if (daemonp)
-    (message "Emacs loaded in the daemon in %s with %d garbage collections."
-         (format "%.2f seconds"
-                 (float-time
-                  (time-subtract after-init-time before-init-time)))
-         gcs-done)
-    (message "Emacs loaded in %s with %d garbage collections."
-         (format "%.2f seconds"
-                 (float-time
-                  (time-subtract after-init-time before-init-time)))
-         gcs-done)))
+  (defun td/display-startup-time ()
+    (if (daemonp)
+      (message "Emacs loaded in the daemon in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done)
+      (message "Emacs loaded in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done)))
 
-(add-hook 'emacs-startup-hook #'td/display-startup-time)
+  (add-hook 'emacs-startup-hook #'td/display-startup-time)
 
 #+end_src
 
@@ -31,23 +31,23 @@
 
 #+begin_src emacs-lisp
 
-;; Initialize package sources
-(require 'package)
+  ;; Initialize package sources
+  (require 'package)
 
-(setq package-archives '(("melpa"  . "https://melpa.org/packages/")
-			     ("elpa"   . "https://elpa.gnu.org/packages/")
-                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+  (setq package-archives '(("melpa"  . "https://melpa.org/packages/")
+                               ("elpa"   . "https://elpa.gnu.org/packages/")
+                           ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
+  (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
 
-;; Initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
+  ;; Initialize use-package on non-Linux platforms
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
 
-(require 'use-package)
-(setq use-package-always-ensure t)
+  (require 'use-package)
+  (setq use-package-always-ensure t)
 
 #+end_src
 
@@ -112,6 +112,8 @@
 #+begin_src emacs-lisp
 
   (setq inhibit-startup-message t)
+
+  (setq initial-scratch-message ";; Don't panic\n\n")
 
   (scroll-bar-mode -1)		; Disable visible scrollbar 
   (tool-bar-mode -1)		; Disable the toolbar
@@ -894,18 +896,33 @@
 
 #+end_src
 
-** Sly
+** Lisp 
+
+*** Sly
 
 - Common Lisp REPL
 - Run using =M-x= =sly=
 
 #+begin_src emacs-lisp
 
-(use-package sly
-  :ensure t
-  :commands (sly sly-connect)
-  :config
-  (setq inferior-lisp-program "/usr/bin/sbcl"))
+  (use-package sly
+    :ensure t
+    :commands (sly sly-connect)
+    :config
+    (setq inferior-lisp-program "/usr/bin/sbcl"))
+
+#+end_src
+
+*** Dim Parens
+
+#+begin_src emacs-lisp
+
+  (use-package paren-face
+    :ensure t
+    :hook ((prog-mode eshell-mode
+                      inferior-lisp-mode inferior-emacs-lisp-mode
+                      lisp-interaction-mode sly-mrepl-mode)
+           . paren-face-mode))
 
 #+end_src
 
