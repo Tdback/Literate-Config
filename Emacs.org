@@ -5,6 +5,9 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; STARTUP
+  
+  ;; Minimize garbage collection during startup
   ;; The default is 800 kilobytes. Measured in bytes
   (setq gc-cons-threshold (* 50 1000 1000))
 
@@ -31,13 +34,15 @@
 
 #+begin_src emacs-lisp
 
-  ;; Initialize package sources
+  ;;;; INITIALIZE PACKAGE SOURCES
   (require 'package)
 
+  ;;; PACKAGE LIST
   (setq package-archives '(("melpa"  . "https://melpa.org/packages/")
                                ("elpa"   . "https://elpa.gnu.org/packages/")
                            ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
+  ;;; BOOTSTRAP USE-PACKAGE
   (package-initialize)
   (unless package-archive-contents
     (package-refresh-contents))
@@ -58,6 +63,8 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; AUTO UPDATES
+  ;; Run auto-upates on packages 1/week
   (use-package auto-package-update
     :custom
     (auto-package-update-interval 7)
@@ -72,6 +79,7 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; SERVER SETUP
   (use-package server
     :ensure nil
     :defer 1
@@ -85,6 +93,7 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; CLEAN UP FOLDERS 
   (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 
   ;; auto-save-mode doesn't create the path automatically!
@@ -99,6 +108,7 @@
 
 #+begin_src emacs-lisp
 
+  ;; Check user on login
   (defvar td/my-system
     (if (string-equal user-login-name "td")
         t
@@ -111,6 +121,7 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; BASIC UI CONFIG
   (setq inhibit-startup-message t)
 
   (setq initial-scratch-message ";; Don't panic\n\n")
@@ -218,6 +229,7 @@
 
 #+begin_src emacs-lisp
 
+  ;;;; KEYBINDINGS
   ;; Make ESC quit prompts
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -479,7 +491,7 @@
           org-log-into-drawer t)
 
     (setq org-agenda-files
-          '("~/OrgFiles/Tasks.org"))
+          '("~/org_files/tasks.org"))
 
     (require 'org-habit)
     (add-to-list 'org-modules 'org-habit)
@@ -559,16 +571,16 @@
 
     (setq org-capture-templates
           '(("t" "Tasks / Projects")
-            ("tt" "New Task" entry (file+olp "~/OrgFiles/Tasks.org" "Tasks")
+            ("tt" "New Task" entry (file+olp "~/org_files/tasks.org" "Tasks")
              "* TODO %?\n %U\n %a\n %i" :empty-lines 1)
 
             ("i" "Idea / Thought")
-            ("ii" "New Idea" entry (file+olp "~/OrgFiles/Ideas.org" "Ideas")
+            ("ii" "New Idea" entry (file+olp "~/org_files/ideas.org" "Ideas")
              "* %^{Idea}\n %U\n %?\n %i" :empty-lines 1)
 
             ("j" "Journal Entries")
             ("jj" "Journal" entry
-             (file+olp+datetree "~/OrgFiles/Journal.org")
+             (file+olp+datetree "~/org_files/journal.org")
              "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
              :clock-in :clock-resume
              :empty-lines 1)))
@@ -684,33 +696,33 @@
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory "~/RoamNotes")
-  (org-roam-dailies-directory "Daily/")
+  (org-roam-directory "~/roam_notes")
+  (org-roam-dailies-directory "daily/")
   (org-roam-completion-everywhere t)
   (org-roam-capture-templates
    '(("d" "default" plain
-      (file "~/RoamNotes/Templates/DefaultCaptureTemplate.org")
+      (file "~/roam_notes/templates/default_capture_template.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("l" "programming language" plain
-      (file "~/RoamNotes/Templates/ProgrammingLanguageTemplate.org")
+      (file "~/roam_notes/templates/programming_language_template.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("b" "book notes" plain
-      (file "~/RoamNotes/Templates/BookNoteTemplate.org")
+      (file "~/roam-notes/templates/book_note_template.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("c" "chapter notes" plain
-      (file "~/RoamNotes/Templates/ChapterNoteTemplate.org")
+      (file "~/roam_notes/templates/chapter_note_template.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)
      ("n" "course notes" plain
-      (file "~/RoamNotes/Templates/CourseNoteTemplate.org")
+      (file "~/roam_notes/templates/course_note_template.org")
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n")
       :unnarrowed t)))
   (org-roam-dailies-capture-templates
    '(("d" "default" entry
-      (file "~/RoamNotes/Templates/DailyCaptureTemplate.org")
+      (file "~/roam_notes/templates/daily_capture_template.org")
       :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n")
       :empty-lines-before 1)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
@@ -782,6 +794,7 @@
 
 #+begin_src emacs-lisp
 
+;;;; COMPLETION
 (use-package eglot
   :ensure t :defer t 
   :config
@@ -951,6 +964,7 @@
 
 #+begin_src emacs-lisp
 
+;;;; WRITING
 (use-package writegood-mode
   :hook (jinx-mode . writegood-mode))
 
@@ -987,8 +1001,8 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (when (file-directory-p "~/Projects")
-    (setq projectile-project-search-path '("~/Projects")))
+  (when (file-directory-p "~/projects")
+    (setq projectile-project-search-path '("~/projects")))
   (setq projectile-switch-project-action #'projectile-dired))
 
 (use-package counsel-projectile
@@ -1005,17 +1019,9 @@
 
 #+begin_src emacs-lisp
 
+;;;; GIT
 (use-package magit
   :commands magit-status)
-
-#+end_src
-
-** Rainbow Delimeters
-
-#+begin_src emacs-lisp
-
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
 
 #+end_src
 
@@ -1025,6 +1031,7 @@
 
 #+begin_src emacs-lisp
 
+;;;; TERMINALS 
 (use-package term
   :commands term
   :config
@@ -1150,6 +1157,7 @@
 
 #+begin_src emacs-lisp
 
+;;;; FILE MANAGEMENT
 (use-package dired
   :ensure nil
   :commands (dired dired-jump)
@@ -1184,8 +1192,11 @@
 
 #+begin_src emacs-lisp
 
-(use-package simple-httpd
-  :ensure t)
+  ;;;; ETC
+
+    ;; Local Web-hosting
+  (use-package simple-httpd
+    :ensure t)
 
 #+end_src
 
@@ -1193,6 +1204,7 @@
 
 #+begin_src emacs-lisp
 
+;; IRC
 (setq erc-server "irc.libera.chat"
       erc-port 6697
       erc-nick "tdback"
